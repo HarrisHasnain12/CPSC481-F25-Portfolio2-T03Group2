@@ -1,0 +1,285 @@
+@media screen and (min-width: 800px) {
+  
+  span {
+    color: purple;
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  p {
+    color: black;
+  }
+
+  a {
+    color: grey;
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  a:hover {
+    color: purple;
+  }
+  
+  img {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+  }
+  
+  ul {
+    font-size: 150%;
+  }
+
+  #name {
+    font-size: 350%;
+  }
+
+  #hobby {
+    font-size: 175%;
+  }
+
+  #page {
+    font-size: 400%;
+  }
+
+  #desc {
+    font-size: 175%;
+  }
+  
+  #resume {
+    font-size: 100%;
+    color: purple;
+  }
+  
+  #resume:hover {
+    color: blue;
+  }
+  
+  #interests {
+    font-size: 100%;
+    color: purple;
+  }
+  
+  #interests:hover {
+    color: blue;
+  }
+  
+  .skills {
+    font-size: 175%;
+  }
+  
+  .bar {
+    width: 100%;
+  }
+  
+  .small-link {
+    font-size: 150%;
+    color: purple;
+    margin: 75px;
+  }
+
+  .small-link:hover {
+    color: blue;
+    padding: 0px;
+  }
+  
+  .body {
+    font-size: 150%;
+  }
+
+  .flex-head {
+    display: flex;
+    justify-content: center;
+    border-top: 5px solid purple;
+    border-bottom: 0.5px solid grey;
+  }
+
+  .item-head {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .flex-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .item-image-1 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-right: 0.5px solid grey;
+    min-width: 300px;
+  }
+
+  .item-image-2 {
+    flex: 2;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .flex-data {
+    display: flex;
+    justify-content: space-around;;
+  }
+
+  .item-data {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .flex-end {
+    display: flex;
+    justify-content: center;
+    border-top: 0.5px solid grey;
+  }
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+  
+  span {
+    color: purple;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  p {
+    color: black;
+  }
+
+  a {
+    color: grey;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  a:hover {
+    color: purple;
+  }
+  
+  img {
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+  }
+
+  #name {
+    font-size: 350%;
+  }
+
+  #hobby {
+    font-size: 175%;
+  }
+
+  #page {
+    font-size: 400%;
+    text-align: center;
+  }
+
+  #desc {
+    font-size: 175%;
+  }
+  
+   #resume {
+    font-size: 100%;
+    color: purple;
+  }
+  
+  #resume:hover {
+    color: blue;
+  }
+  
+  #interests {
+    font-size: 100%;
+    color: purple;
+  }
+  
+  #interests:hover {
+    color: blue;
+  }
+  
+  .skills {
+    font-size: 175%;
+  }
+  
+  .bar {
+    width: 150%;
+  }
+  
+  .small-link {
+    font-size: 150%;
+    color: purple;
+    margin: 75px;
+  }
+
+  .small-link:hover {
+    color: blue;
+    padding: 0px;
+  }
+
+  .body {
+    font-size: 100%;
+  }
+  
+  .flex-head {
+    display: flex;
+    justify-content: center;
+    border-top: 5px solid purple;
+    border-bottom: 0.5px solid grey;
+  }
+
+  .item-head {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .flex-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item-image-1 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 0.5px solid grey;
+    min-width: 300px;
+  }
+
+  .item-image-2 {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .flex-data {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .item-data {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .flex-end {
+    display: flex;
+    justify-content: center;
+    border-top: 0.5px solid grey;
+  }
+}

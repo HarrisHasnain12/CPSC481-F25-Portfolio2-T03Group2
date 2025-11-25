@@ -137,4 +137,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial load: apply highlights based on saved convention_panels
   applySavedPanelHighlights();
+
+  // NEW: when the map page loads, clear all view_on_map flags in storage
+  // so that "View on Map" highlights only once (on the first load
+  // after clicking the button).
+  (function resetViewOnMapFlags() {
+    // 1. Load the convention_panels JSON object from localStorage
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      console.error(
+        "Could not retrieve convention_panels from localStorage when resetting view_on_map flags."
+      );
+      // If it can't be found, don't perform the following steps
+      return;
+    }
+
+    let panelsData;
+    try {
+      panelsData = JSON.parse(saved);
+    } catch (err) {
+      console.error(
+        "Error parsing convention_panels when resetting view_on_map flags:",
+        err
+      );
+      return;
+    }
+
+    if (!panelsData || !Array.isArray(panelsData.events)) {
+      console.error(
+        "convention_panels JSON does not contain a valid 'events' array when resetting view_on_map flags."
+      );
+      return;
+    }
+
+    // 2. Set view_on_map = false for all events
+    panelsData.events.forEach((event) => {
+      event.view_on_map = false;
+    });
+
+    // 3. Save convention_panels back to localStorage
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(panelsData));
+    } catch (err) {
+      console.error(
+        "Failed to save convention_panels after resetting view_on_map flags:",
+        err
+      );
+    }
+  })();
 });

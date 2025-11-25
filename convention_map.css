@@ -1,0 +1,11 @@
+/* Convention map specific styles */
+
+.map-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.map-icon {
+  font-size: 64px;
+}

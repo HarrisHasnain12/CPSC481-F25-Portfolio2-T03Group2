@@ -16,7 +16,7 @@ body {
 /* Phone-sized app container */
 .phone {
   width: 390px;              /* iPhone-width style */
-  min-height: 780px;
+  height: 844px;             /* ✅ fixed “screen” height */
   background: #ffffff;
   border-radius: 36px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -55,9 +55,10 @@ body {
 }
 
 .home-body {
-  padding: 24px 20px 80px;
+  padding: 24px 20px 60px;
   text-align: center;
   flex: 1;
+  overflow-y: auto;   /* ✅ content scrolls, nav stays put */
 }
 
 .home-title {

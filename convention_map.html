@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calgary Expo App - Convention Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Reuse base styles from home_page -->
+  <link rel="stylesheet" href="home_page.css" />
+  <!-- Map-page-specific styles -->
+  <link rel="stylesheet" href="convention_map.css" />
+</head>
+<body>
+  <div class="phone">
+    <main class="home-body">
+      <!-- Minimal content for this page -->
+      <h1 class="map-title">Convention Map</h1>
+      <div class="map-icon" aria-hidden="true">🗺️</div>
+    </main>
+
+    <!-- Bottom navigation bar -->
+    <nav class="tab-bar">
+      <a class="tab-item" href="home_page.html">
+        <div class="tab-icon">🏠</div>
+        <div class="tab-label">Home</div>
+      </a>
+      <a class="tab-item" href="browse_events.html">
+        <div class="tab-icon">📅</div>
+        <div class="tab-label">Schedule</div>
+      </a>
+      <!-- This page is active -->
+      <a class="tab-item active" href="convention_map.html">
+        <div class="tab-icon">📍</div>
+        <div class="tab-label">Navigation</div>
+      </a>
+      <a class="tab-item" href="my_expo.html">
+        <div class="tab-icon">⭐</div>
+        <div class="tab-label">My Expo</div>
+      </a>
+      <a class="tab-item" href="more.html">
+        <div class="tab-icon">☰</div>
+        <div class="tab-label">More</div>
+      </a>
+    </nav>
+  </div>
+
+  <script src="convention_map.js"></script>
+</body>
+</html>

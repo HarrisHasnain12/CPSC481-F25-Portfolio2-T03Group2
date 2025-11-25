@@ -12,7 +12,7 @@
       "panel": "1A",
       "guests": "Tom Holland, Robert Downey Jr and Chris Hemsworth",
       "type": "Q&A session",
-      "added_to_my_expo": false,
+      "added_to_my_expo": true,
       "view_on_map": false,
       "event_detail_page": "event_marvel.html"
     },
@@ -29,7 +29,7 @@
       "guests": "Gal Gadot, Jason Momoa",
       "type": "Q&A session",
       "added_to_my_expo": false,
-      "view_on_map": false,
+      "view_on_map": true,
       "event_detail_page": "event_dc.html"
     },
     {
@@ -44,7 +44,7 @@
       "panel": "2B",
       "guests": "Mark Hamill, Daisy Ridley",
       "type": "Panel discussion",
-      "added_to_my_expo": false,
+      "added_to_my_expo": true,
       "view_on_map": false,
       "event_detail_page": "event_star_wars.html"
     },

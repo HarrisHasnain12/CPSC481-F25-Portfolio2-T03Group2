@@ -211,7 +211,7 @@
 }
 
 .swatch-help-center {
-  background: yellow;
+  background: purple;
 }
 
 .swatch-food-court {
@@ -221,4 +221,50 @@
 /* Optional: generic highlight styling if you want a bit of extra emphasis */
 .map-panel.is-highlighted {
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Highlights based on saved events in localStorage */
+.map-panel.my-expo-highlight {
+  background: pink;
+}
+
+/* If view_on_map is true, this should take precedence over my_expo */
+.map-panel.view-on-map-highlight {
+  background: yellow;
+}
+
+/* Legend for saved highlights (My Events / Event of Interest) */
+.map-legend {
+  display: flex;
+  justify-content: center;   /* center in the header */
+  gap: 16px;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Match highlight colours from the map panels */
+.legend-swatch-my-expo {
+  background: pink;      /* My Events */
+}
+
+.legend-swatch-interest {
+  background: yellow;    /* Event of Interest */
+}
+
+.legend-label {
+  white-space: nowrap;
 }

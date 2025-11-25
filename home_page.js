@@ -45,4 +45,14 @@ async function ensureConventionPanels() {
 document.addEventListener("DOMContentLoaded", () => {
   console.log("home page loaded");
   ensureConventionPanels(); // run the logic when the home page loads
+
+    // DELETE button logic
+  const deleteBtn = document.getElementById("delete-panels-btn");
+  if (deleteBtn) {
+    deleteBtn.addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_KEY);
+      console.log("⚠️ Deleted convention_panels from localStorage");
+      alert("Saved convention panel data has been deleted!");
+    });
+  }
 });

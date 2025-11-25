@@ -1,3 +1,5 @@
+const STORAGE_KEY = "convention_panels";
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("showing convention map");
 
@@ -5,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     anime: "red",
     "movie-franchise": "blue",
     restroom: "orange",
-    "help-center": "yellow",
+    "help-center": "purple",
     "food-court": "green",
   };
 
@@ -21,11 +23,65 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".filter-checkbox")
   );
 
+  /**
+   * Highlight panels based on the convention_panels JSON in localStorage.
+   * - added_to_my_expo === true  -> pink
+   * - view_on_map === true       -> yellow (takes precedence)
+   */
+  function applySavedPanelHighlights() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (!saved) {
+      console.error(
+        "Could not retrieve convention_panels from localStorage."
+      );
+      return;
+    }
+
+    let conventionPanels;
+    try {
+      conventionPanels = JSON.parse(saved);
+    } catch (err) {
+      console.error(
+        "Error parsing convention_panels from localStorage:",
+        err
+      );
+      return;
+    }
+
+    if (!conventionPanels || !Array.isArray(conventionPanels.events)) {
+      console.error(
+        "convention_panels JSON does not contain a valid 'events' array."
+      );
+      return;
+    }
+
+    conventionPanels.events.forEach((event) => {
+      const panelId = event.panel;
+      if (!panelId) return;
+
+      const panelEl = document.getElementById(panelId);
+      if (!panelEl) return;
+
+      // added_to_my_expo -> pink
+      if (event.added_to_my_expo === true) {
+        panelEl.classList.add("my-expo-highlight");
+      }
+
+      // view_on_map -> yellow (can coexist, but CSS makes yellow win)
+      if (event.view_on_map === true) {
+        panelEl.classList.add("view-on-map-highlight");
+      }
+    });
+  }
+
   function resetHighlights() {
     allPanels.forEach((panel) => {
-      // Reset inline styles so CSS background comes back
+      // Reset *filter* highlights (inline styles + is-highlighted class)
       panel.style.backgroundColor = "";
       panel.classList.remove("is-highlighted");
+      // NOTE: we intentionally do NOT remove my-expo-highlight or
+      //       view-on-map-highlight so the saved state persists.
     });
   }
 
@@ -38,7 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .map((cb) => cb.value);
 
     if (activeFilters.length === 0) {
-      return; // nothing selected → no highlighting
+      // No filters selected → just show saved My Expo / view_on_map highlights
+      applySavedPanelHighlights();
+      return;
     }
 
     activeFilters.forEach((filterValue) => {
@@ -66,10 +124,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     });
+
+    // When filters are active, their inline colors override the saved ones.
+    // When user clears all filters, applyFilters() will be called again,
+    // see the early return above which re-applies saved highlights.
   }
 
-  // Re-apply whenever a checkbox changes
+  // Wire up filter change listeners
   checkboxes.forEach((cb) => {
     cb.addEventListener("change", applyFilters);
   });
+
+  // Initial load: apply highlights based on saved convention_panels
+  applySavedPanelHighlights();
 });

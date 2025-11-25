@@ -12,11 +12,170 @@
 </head>
 <body>
   <div class="phone">
-    <main class="home-body">
-      <!-- Minimal content for this page -->
-      <h1 class="map-title">Convention Map</h1>
-      <div class="map-icon" aria-hidden="true">🗺️</div>
+    <!-- HOME SCREEN (single page) -->
+    <header class="map-header">
+        <div class="map-header-inner">
+            <div class="map-header-title">Filters &amp; Legend</div>
+
+            <form class="map-filters" id="map-filters">
+            <!-- Events group -->
+            <fieldset class="filter-group">
+                <legend class="filter-group-title">Events</legend>
+
+                <label class="filter-option">
+                <input
+                    type="checkbox"
+                    class="filter-checkbox"
+                    name="event-filter"
+                    value="anime"
+                />
+                <span class="filter-swatch swatch-anime"></span>
+                <span class="filter-label">Anime</span>
+                </label>
+
+                <label class="filter-option">
+                <input
+                    type="checkbox"
+                    class="filter-checkbox"
+                    name="event-filter"
+                    value="movie-franchise"
+                />
+                <span class="filter-swatch swatch-movie"></span>
+                <span class="filter-label">Movie franchise</span>
+                </label>
+            </fieldset>
+
+            <!-- Amenities group -->
+            <fieldset class="filter-group">
+                <legend class="filter-group-title">Amenities</legend>
+
+                <label class="filter-option">
+                <input
+                    type="checkbox"
+                    class="filter-checkbox"
+                    name="amenity-filter"
+                    value="restroom"
+                />
+                <span class="filter-swatch swatch-restroom"></span>
+                <span class="filter-label">Restroom</span>
+                </label>
+
+                <label class="filter-option">
+                <input
+                    type="checkbox"
+                    class="filter-checkbox"
+                    name="amenity-filter"
+                    value="help-center"
+                />
+                <span class="filter-swatch swatch-help-center"></span>
+                <span class="filter-label">Help center</span>
+                </label>
+
+                <label class="filter-option">
+                <input
+                    type="checkbox"
+                    class="filter-checkbox"
+                    name="amenity-filter"
+                    value="food-court"
+                />
+                <span class="filter-swatch swatch-food-court"></span>
+                <span class="filter-label">Food court</span>
+                </label>
+            </fieldset>
+            </form>
+        </div>
+    </header>
+
+
+    <main class="map-body">
+      <section class="map-grid" aria-label="Convention floor map">
+        <!-- Row 1 -->
+        <div class="map-panel restroom" id="mens-washroom">
+          <div class="panel-top-icon" aria-hidden="true">🚹</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about men's washroom">i</a>
+        </div>
+
+        <div class="map-panel anime" id="1A">
+          <div class="panel-label">1A</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 1A">i</a>
+        </div>
+
+        <div class="map-panel restroom" id="womens-washroom">
+          <div class="panel-top-icon" aria-hidden="true">🚺</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about women's washroom">i</a>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="map-panel movie-franchise" id="2A">
+          <div class="panel-label">2A</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 2A">i</a>
+        </div>
+
+        <div class="map-panel anime" id="2B">
+          <div class="panel-label">2B</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 2B">i</a>
+        </div>
+
+        <div class="map-panel movie-franchise" id="2C">
+          <div class="panel-label">2C</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 2C">i</a>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="map-panel movie-franchise" id="3A">
+          <div class="panel-label">3A</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 3A">i</a>
+        </div>
+
+        <div class="map-panel anime" id="3B">
+          <div class="panel-label">3B</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 3B">i</a>
+        </div>
+
+        <div class="map-panel movie-franchise" id="3C">
+          <div class="panel-label">3C</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about panel 3C">i</a>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="map-panel" id="food-court">
+          <div class="panel-top-icon" aria-hidden="true">🍽️</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about the food court">i</a>
+        </div>
+
+        <div class="map-panel" id="exit">
+          <div class="panel-top-icon" aria-hidden="true">🚪➡️</div>
+        </div>
+
+        <div class="map-panel" id="help-center">
+          <div class="panel-top-icon" aria-hidden="true">🛡️</div>
+          <a href="details.html"
+             class="panel-info-btn"
+             aria-label="More info about the help center">i</a>
+        </div>
+      </section>
     </main>
+
 
     <!-- Bottom navigation bar -->
     <nav class="tab-bar">

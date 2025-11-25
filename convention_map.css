@@ -9,3 +9,216 @@
 .map-icon {
   font-size: 64px;
 }
+
+/* Layout for the map grid in the body */
+.map-body {
+  /* re-use spacing from home_body but keep it a bit tighter for the grid */
+  padding-top: 0px;
+  text-align: center;
+  flex: 1;
+  overflow-y: auto;   /* ✅ content scrolls, nav stays put */
+}
+
+/* 4 x 3 grid of panels */
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 110px;   /* smaller cells */
+  gap: 0;
+  position: relative;
+  padding: 12px;           /* add a bit of outer whitespace */
+  background-color: #fdfdfd;
+}
+
+/* Each individual panel box */
+.map-panel {
+  background: #bfbfbf;
+  border: 3px solid #000000;
+  border-radius: 10px;
+
+  /* make the panel smaller than the grid cell */
+  width: 80%;
+  height: 80%;
+  justify-self: center;  /* center horizontally in the cell */
+  align-self: center;    /* center vertically in the cell */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Top label or icon in each panel */
+.panel-label {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.panel-top-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* Info button – same size for ALL panels */
+.panel-info-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+/* Optional: add the dotted separators like in the mockup */
+.map-grid::before,
+.map-grid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 3px dotted #000000;
+  pointer-events: none;
+}
+
+.map-grid::before {
+  left: 33.3333%;
+}
+
+.map-grid::after {
+  left: 66.6666%;
+}
+
+/* Dotted horizontal lines for the grid */
+.map-grid {
+  background-image:
+    /* line at 25% */
+    repeating-linear-gradient(
+      to right,
+      #000000 0,
+      #000000 4px,
+      transparent 4px,
+      transparent 8px
+    ),
+    /* line at 50% */
+    repeating-linear-gradient(
+      to right,
+      #000000 0,
+      #000000 4px,
+      transparent 4px,
+      transparent 8px
+    ),
+    /* line at 75% */
+    repeating-linear-gradient(
+      to right,
+      #000000 0,
+      #000000 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  /* each background is a 2px-tall strip spanning the grid */
+  background-size:
+    100% 2px,
+    100% 2px,
+    100% 2px;
+  /* place the strips at 25%, 50%, 75% height */
+  background-position:
+    0 25%,
+    0 50%,
+    0 75%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+
+.map-header {
+  background: #c62828;
+  color: #ffffff;
+  padding: 12px 16px 8px;
+}
+
+.map-header-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-header-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Filters layout */
+.map-filters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.filter-group {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 6px 8px;
+  min-width: 140px;
+}
+
+.filter-group-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.filter-option input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+}
+
+.filter-label {
+  font-size: 12px;
+}
+
+/* Colour swatches to match highlight colours */
+.filter-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.swatch-anime {
+  background: red;
+}
+
+.swatch-movie {
+  background: blue;
+}
+
+.swatch-restroom {
+  background: orange;
+}
+
+.swatch-help-center {
+  background: yellow;
+}
+
+.swatch-food-court {
+  background: green;
+}
+
+/* Optional: generic highlight styling if you want a bit of extra emphasis */
+.map-panel.is-highlighted {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.4);
+}

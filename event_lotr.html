@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Journey Through Middle-earth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Base styling from your app -->
+  <link rel="stylesheet" href="home_page.css" />
+
+  <style>
+    /* ----- PAGE FORMAT ----- */
+    .detail-header {
+      position: relative;
+      padding-top: 32px;
+      padding-bottom: 24px;
+      text-align: center;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 16px;
+      top: 35%;
+      transform: translateY(-50%);
+      background: #4fc3f7;
+      border: 2px solid black;
+      outline: 2px solid black;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 22px;
+      color: black;
+      cursor: pointer;
+    }
+
+    .detail-subtitle {
+      margin-top: 4px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .event-body {
+      text-align: left;
+      padding-bottom: 40px;
+    }
+
+    .event-hero {
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      background: #000000;
+    }
+
+    .event-hero img {
+      width: 100%;
+      display: block;
+    }
+
+    .event-tag {
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: #4fc3f7;
+      color: white;
+    }
+
+    .event-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .event-time {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .event-meta {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .event-meta strong {
+      font-weight: 600;
+    }
+
+    .event-divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 16px 0;
+    }
+
+    .event-description {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 24px;
+    }
+
+    /* Optional: tweak button spacing within detail page */
+    .event-actions {
+      margin-top: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="phone">
+    <!-- ----- HEADER ----- -->
+    <header class="home-header detail-header">
+      <button id="back-button" class="back-button" aria-label="Go back">←</button>
+
+      <div class="expo-logo">CALGARY<span>EXPO</span></div>
+      <div>COMICS & ENTERTAINMENT</div>
+
+      <div class="detail-subtitle">Event Details</div>
+    </header>
+
+    <!-- ----- BODY CONTENT ----- -->
+    <main class="home-body event-body">
+      <section class="event-hero">
+        <img id="event-image" src="" alt="event image" />
+        <div class="event-tag" id="event-property"></div>
+      </section>
+
+      <section class="event-details">
+        <h1 class="event-title" id="event-name"></h1>
+
+        <p class="event-time">
+          <span id="event-date"></span>
+          &nbsp;•&nbsp;
+          <span id="event-time-range"></span>
+        </p>
+
+        <p class="event-meta">
+          <strong>Panel:</strong>
+          <span id="event-panel"></span>
+        </p>
+
+        <p class="event-meta">
+          <strong>Event Type:</strong>
+          <span id="event-type"></span>
+        </p>
+
+        <p class="event-meta">
+          <strong>Guests:</strong>
+          <span id="event-guests"></span>
+        </p>
+
+        <hr class="event-divider" />
+
+        <p class="event-description" id="event-description"></p>
+
+        <!-- New "View on Map" button (styled like secondary home buttons) -->
+        <div class="event-actions">
+          <a
+            href="convention_map.html"
+            class="main-btn secondary"
+            id="view-on-map-btn"
+          >
+            View on Map
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ----- NAV BAR ----- -->
+    <nav class="tab-bar">
+      <a class="tab-item" href="home_page.html">
+        <div class="tab-icon">🏠</div>
+        <div class="tab-label">Home</div>
+      </a>
+
+      <a class="tab-item active" href="browse_events.html">
+        <div class="tab-icon">📅</div>
+        <div class="tab-label">Schedule</div>
+      </a>
+
+      <a class="tab-item" href="convention_map.html">
+        <div class="tab-icon">📍</div>
+        <div class="tab-label">Navigation</div>
+      </a>
+
+      <a class="tab-item" href="my_expo.html">
+        <div class="tab-icon">⭐</div>
+        <div class="tab-label">My Expo</div>
+      </a>
+
+      <a class="tab-item" href="more.html">
+        <div class="tab-icon">☰</div>
+        <div class="tab-label">More</div>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ----- JAVASCRIPT ----- -->
+  <script>
+    const STORAGE_KEY = "convention_panels";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("event detail page loaded");
+
+      // Back button
+      document.getElementById("back-button").addEventListener("click", () => {
+        history.back();
+      });
+
+      // Load convention_panels to populate page
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        console.error("Could not retrieve convention_panels from localStorage.");
+        return;
+      }
+
+      let conventionPanels;
+      try {
+        conventionPanels = JSON.parse(saved);
+      } catch (err) {
+        console.error("Error parsing convention_panels:", err);
+        return;
+      }
+
+      if (!conventionPanels || !Array.isArray(conventionPanels.events)) {
+        console.error("Invalid convention_panels structure.");
+        return;
+      }
+
+      const event = conventionPanels.events[3];
+
+      function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el && value != null) el.textContent = value;
+      }
+
+      setText("event-name", event.name);
+      setText("event-property", event.property);
+      setText("event-date", event.date);
+      setText("event-time-range", `${event.start_time} – ${event.end_time}`);
+      setText("event-panel", event.panel);
+      setText("event-type", event.type);
+      setText("event-guests", event.guests);
+      setText("event-description", event.fun_description);
+
+      const img = document.getElementById("event-image");
+      if (img && event.image) {
+        img.src = event.image;
+        img.alt = event.name;
+      }
+
+      // ----- "View on Map" button behaviour -----
+      const viewOnMapBtn = document.getElementById("view-on-map-btn");
+      if (viewOnMapBtn) {
+        viewOnMapBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // 1. Load convention_panels from localStorage
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (!stored) {
+            console.error(
+              "Could not retrieve convention_panels from localStorage when setting view_on_map."
+            );
+            return;
+          }
+
+          let panelsData;
+          try {
+            panelsData = JSON.parse(stored);
+          } catch (err) {
+            console.error(
+              "Error parsing convention_panels when setting view_on_map:",
+              err
+            );
+            return;
+          }
+
+          if (!panelsData || !Array.isArray(panelsData.events)) {
+            console.error(
+              "convention_panels JSON does not contain a valid 'events' array when setting view_on_map."
+            );
+            return;
+          }
+
+          // 2. Set view_on_map = false for ALL events
+          panelsData.events.forEach((ev) => {
+            ev.view_on_map = false;
+          });
+
+          // 3. Set view_on_map = true
+          if (panelsData.events.length > 0) {
+            panelsData.events[3].view_on_map = true;
+          } else {
+            console.error(
+              "convention_panels.events is empty; cannot set view_on_map for this event."
+            );
+            return;
+          }
+
+          // 4. Save updated JSON back to localStorage
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(panelsData));
+          } catch (err) {
+            console.error(
+              "Failed to save updated convention_panels with view_on_map:",
+              err
+            );
+            return;
+          }
+
+          // 5. Navigate to convention_map.html
+          window.location.href = "convention_map.html";
+        });
+      }
+    });
+  </script>
+</body>
+</html>

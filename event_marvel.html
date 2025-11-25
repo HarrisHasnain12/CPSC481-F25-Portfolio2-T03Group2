@@ -200,7 +200,7 @@
     const STORAGE_KEY = "convention_panels";
 
     document.addEventListener("DOMContentLoaded", () => {
-      console.log("event_marvel detail page loaded");
+      console.log("event detail page loaded");
 
       // Back button
       document.getElementById("back-button").addEventListener("click", () => {
@@ -227,7 +227,7 @@
         return;
       }
 
-      const event = conventionPanels.events[0]; // Marvel Multiverse Q&A
+      const event = conventionPanels.events[0];
 
       function setText(id, value) {
         const el = document.getElementById(id);
@@ -287,12 +287,12 @@
             ev.view_on_map = false;
           });
 
-          // 3. Set view_on_map = true for the first event (Marvel Multiverse)
+          // 3. Set view_on_map = true
           if (panelsData.events.length > 0) {
             panelsData.events[0].view_on_map = true;
           } else {
             console.error(
-              "convention_panels.events is empty; cannot set view_on_map for Marvel event."
+              "convention_panels.events is empty; cannot set view_on_map for this event."
             );
             return;
           }

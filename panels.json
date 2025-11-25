@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Marvel Multiverse Q&A",
-      "image": "marvel_multiverse.jpg",
+      "image": "img_marvel_multiverse.jpg",
       "property": "Marvel",
       "date": "April 23rd, 2026",
       "start_time": "10:00AM",
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "name": "DC Superhero Showdown",
-      "image": "dc_superhero_showdown.jpg",
+      "image": "img_dc_superhero_showdown.jpg",
       "property": "DC",
       "date": "April 23rd, 2026",
       "start_time": "11:30AM",
@@ -35,7 +35,7 @@
     {
       "id": 3,
       "name": "Star Wars: Legends of the Force",
-      "image": "star_wars_legends.jpg",
+      "image": "img_star_wars_legends.jpg",
       "property": "Star Wars",
       "date": "April 23rd, 2026",
       "start_time": "1:00PM",
@@ -51,7 +51,7 @@
     {
       "id": 4,
       "name": "Journey Through Middle-earth",
-      "image": "lotr_middle_earth.jpg",
+      "image": "img_lotr_middle_earth.jpg",
       "property": "Lord of the Rings",
       "date": "April 24th, 2026",
       "start_time": "10:00AM",
@@ -67,7 +67,7 @@
     {
       "id": 5,
       "name": "One Piece: Pirates of the Grand Line",
-      "image": "one_piece_pirates.jpg",
+      "image": "img_one_piece_pirates.jpg",
       "property": "One Piece",
       "date": "April 24th, 2026",
       "start_time": "12:00PM",
@@ -83,7 +83,7 @@
     {
       "id": 6,
       "name": "Attack on Titan: Walls and Warriors",
-      "image": "attack_on_titan_warriors.jpg",
+      "image": "img_attack_on_titan_warriors.jpg",
       "property": "Attack on Titan",
       "date": "April 24th, 2026",
       "start_time": "2:00PM",
@@ -99,7 +99,7 @@
     {
       "id": 7,
       "name": "Naruto: Believe It! Reunion",
-      "image": "naruto_reunion.jpg",
+      "image": "img_naruto_reunion.jpg",
       "property": "Naruto",
       "date": "April 25th, 2026",
       "start_time": "11:00AM",
@@ -117,7 +117,7 @@
     {
       "id": 1,
       "name": "Bathrooms",
-      "image": "bathrooms.jpg",
+      "image": "img_bathrooms.jpg",
       "open_time": "9:00AM",
       "close_time": "9:00PM",
       "description": "Bathrooms for all convention go-ers!",
@@ -127,7 +127,7 @@
     {
       "id": 2,
       "name": "Food Court",
-      "image": "food_court.jpg",
+      "image": "img_food_court.jpg",
       "open_time": "10:00AM",
       "close_time": "8:00PM",
       "description": "Grab snacks, full meals, and drinks from a variety of vendors all in one convenient spot.",
@@ -137,7 +137,7 @@
     {
       "id": 3,
       "name": "Help Center",
-      "image": "help_center.jpg",
+      "image": "img_help_center.jpg",
       "open_time": "9:00AM",
       "close_time": "9:00PM",
       "description": "Visit the help center for directions, lost and found, accessibility support, and connections to medical care and on-site first aid.",

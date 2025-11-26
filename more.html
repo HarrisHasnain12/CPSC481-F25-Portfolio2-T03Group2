@@ -7,21 +7,40 @@
 
   <!-- Base styling -->
   <link rel="stylesheet" href="home_page.css" />
+
+  <style>
+    h1, h2 { color: red; }
+    p      { color: black; }
+    .content { text-align: left; }
+    h1 {text-align: center;}
+  </style>
 </head>
 
 <body>
   <div class="phone">
     <header class="home-header">
-      <div class="expo-logo">CALGARY<span>EXPO</span></div>
-      <div>COMICS & ENTERTAINMENT</div>
+      <div class="expo-logo"><span>More Information</span></div>
     </header>
 
-    <main class="home-body">
-      <h1 class="home-title">More Options</h1>
+    <main class="home-body" style="display: flex; flex-direction: column; align-items: center; justify-content: top;">
+      <a href="faq.html" class="main-btn primary" style="margin-bottom: 40px;">FAQ</a>
+      <a href="about_us.html" class="main-btn primary" style="margin-bottom: 40px;">About Us</a>
+      <div class="content">
+        <h1>Contact Fan Expo</h1>
 
-      <a href="faq.html" class="main-btn secondary">FAQ</a>
-      <a href="about_us.html" class="main-btn secondary">About Us</a>
-      <a href="contact.html" class="main-btn secondary">Contact</a>
+        <p style="margin-bottom: 20px; text-align: center;">Have questions or need any support with finding your optimal convention experience? Fan Expo HQ is here to help!</p>
+
+        <h2>Email</h2>
+        <p style="margin-bottom: 20px;">support@fanexpo.com</p>
+
+        <h2>Phone</h2>
+        <p style="margin-bottom: 20px;">1-800-555-FANEXPO</p>
+
+        <h2>Location</h2>
+        <p style="margin-bottom: 20px;">Stampede Park, Calgary, Alberta</p>
+
+        <h2>Hours</h2>
+        <p>9:00AM – 6:00PM (during event dates)</p>
     </main>
 
     <nav class="tab-bar">

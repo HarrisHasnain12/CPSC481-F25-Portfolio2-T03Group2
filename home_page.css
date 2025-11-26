@@ -43,7 +43,14 @@ body {
 }
 
 .expo-logo span {
-  color: #4fc3f7;
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+    text-shadow:
+    -2px -2px 0 #000,  
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000;
 }
 
 .home-dates {
@@ -151,3 +158,25 @@ body {
   color: #c62828;
   font-weight: 600;
 }
+
+    .back-button {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #4fc3f7;
+      border: 0.5px solid white;
+      outline: 0.5px solid white;
+      border-radius: 8px;
+      padding: 0px 7px 5px 7px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .detail-header {
+      position: relative;
+      padding-top: 32px;
+      padding-bottom: 24px;
+      text-align: center;
+    }

@@ -134,6 +134,10 @@
   background: green;
 }
 
+.swatch-exit {
+  background: brown;
+}
+
 /* Optional: generic highlight styling if you want a bit of extra emphasis */
 .map-panel.is-highlighted {
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.4);

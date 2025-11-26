@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     restroom: "orange",
     "help-center": "purple",
     "food-court": "green",
+    "exit": "brown",
   };
 
   // Map amenity filters to panel IDs
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     restroom: ["mens-washroom", "womens-washroom"],
     "help-center": ["help-center"],
     "food-court": ["food-court"],
+    "exit": ["exit"],
   };
 
   const allPanels = Array.from(document.querySelectorAll(".map-panel"));

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deleteBtn.addEventListener("click", () => {
       localStorage.removeItem(STORAGE_KEY);
       console.log("⚠️ Deleted convention_panels from localStorage");
-      alert("Saved convention panel data has been deleted!");
+      alert("Successfully cleared convention panel data from local storage!");
     });
   }
 });

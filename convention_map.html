@@ -14,15 +14,16 @@
   <div class="phone">
     <!-- HOME SCREEN (single page) -->
     <header class="home-header map-header">
-        <div class="expo-logo"><span style="font-size: 1.5em;">Convention Map</span></div>
-        <div class="map-header-inner">
-            <div class="map-header-title">Filters & Legend</div>
+        <div class="expo-logo"><span style="font-size: 1em;">Convention Map</span></div>
 
-            <form class="map-filters" id="map-filters">
-            <!-- Events group -->
-            <fieldset class="filter-group">
-                <legend class="filter-group-title">Events</legend>
+        <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
 
+        <div class="map-header-title">Panel Filters</div>
+
+        <div class="filter-section">
+
+            <div class="events-section">
+              <span class="map-header-subtitle">Events</span>
                 <label class="filter-option">
                 <input
                     type="checkbox"
@@ -30,8 +31,8 @@
                     name="event-filter"
                     value="anime"
                 />
-                <span class="filter-swatch swatch-anime"></span>
                 <span class="filter-label">Anime</span>
+                <span class="filter-swatch swatch-anime"></span>
                 </label>
 
                 <label class="filter-option">
@@ -41,15 +42,21 @@
                     name="event-filter"
                     value="movie-franchise"
                 />
-                <span class="filter-swatch swatch-movie"></span>
                 <span class="filter-label">Movie franchise</span>
+                <span class="filter-swatch swatch-movie"></span>
                 </label>
-            </fieldset>
+                <div class="filter-option">
+                <span class="filter-label">My Events</span>
+                <span class="filter-swatch legend-swatch-my-expo"></span>
+                </div>
+                <div class="filter-option">
+                  <span class="filter-label">Event of Interest</span>
+                  <span class="filter-swatch legend-swatch-interest"></span>
+                </div>
+            </div>
 
-            <!-- Amenities group -->
-            <fieldset class="filter-group">
-                <legend class="filter-group-title">Amenities</legend>
-
+            <div class="amenities-section">
+                <span class="map-header-subtitle">Amenities</span>
                 <label class="filter-option">
                 <input
                     type="checkbox"
@@ -57,8 +64,8 @@
                     name="amenity-filter"
                     value="restroom"
                 />
-                <span class="filter-swatch swatch-restroom"></span>
                 <span class="filter-label">Restroom</span>
+                <span class="filter-swatch swatch-restroom"></span>
                 </label>
 
                 <label class="filter-option">
@@ -68,8 +75,8 @@
                     name="amenity-filter"
                     value="help-center"
                 />
-                <span class="filter-swatch swatch-help-center"></span>
                 <span class="filter-label">Help center</span>
+                <span class="filter-swatch swatch-help-center"></span>
                 </label>
 
                 <label class="filter-option">
@@ -79,25 +86,12 @@
                     name="amenity-filter"
                     value="food-court"
                 />
-                <span class="filter-swatch swatch-food-court"></span>
                 <span class="filter-label">Food court</span>
+                <span class="filter-swatch swatch-food-court"></span>
                 </label>
-            </fieldset>
-            </form>
-
-                <!-- 🔽 NEW legend section for My Events & Event of Interest -->
-            <div class="map-legend">
-              <div class="legend-item">
-                <span class="legend-swatch legend-swatch-my-expo"></span>
-                <span class="legend-label">My Events</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-swatch legend-swatch-interest"></span>
-                <span class="legend-label">Event of Interest</span>
-              </div>
             </div>
-            <!-- 🔼 END new legend section -->
         </div>
+
     </header>
 
 
@@ -114,7 +108,7 @@
           </div>
         </div>
 
-        <div class="map-panel-container" style="border-left: 5px dotted black; border-right: 5px dotted black;">
+        <div class="map-panel-container" style="border-left: 5px dashed black; border-right: 5px dashed black;">
           <div class="map-panel movie-franchise" id="1A">
             <div class="panel-label">1A -<br>Marvel</div>
             <a href="event_marvel.html"
@@ -145,7 +139,7 @@
         </div>
         </div>
 
-        <div class="map-panel-container" style="border-left: 5px dotted black; border-right: 5px dotted black;">
+        <div class="map-panel-container" style="border-left: 5px dashed black; border-right: 5px dashed black;">
         <div class="map-panel movie-franchise" id="2B">
           <div class="panel-label">2B -<br>Star Wars</div>
           <a href="event_star_wars.html"
@@ -175,7 +169,7 @@
         </div>
         </div>
 
-        <div class="map-panel-container" style="border-left: 5px dotted black; border-right: 5px dotted black;">
+        <div class="map-panel-container" style="border-left: 5px dashed black; border-right: 5px dashed black;">
         <div class="map-panel anime" id="3B">
           <div class="panel-label">3B -<br>AOT</div>
           <a href="event_attack_on_titan.html"
@@ -205,7 +199,7 @@
         </div>
         </div>
 
-        <div class="map-panel-container" style="border-left: 5px dotted black; border-right: 5px dotted black;">
+        <div class="map-panel-container" style="border-left: 5px dashed black; border-right: 5px dashed black;">
         <div class="map-panel" id="exit" style="font-size: 5em;">
           ⍈
         </div>

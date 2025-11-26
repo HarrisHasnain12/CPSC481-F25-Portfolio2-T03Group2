@@ -28,7 +28,7 @@
   align-items: center;
   width: 100%;
   height: 25%;
-  border-top: 5px dotted black;
+  border-top: 5px dashed black;
 }
 
 .map-panel-container {
@@ -85,19 +85,10 @@
   text-decoration: none;
 }
 
-.map-header {
-  height: 250px;
-}
-
 .map-header-inner {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.map-header-title {
-  font-size: 18px;
-  font-weight: 700;
 }
 
 /* Filters layout */
@@ -121,30 +112,6 @@
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin-bottom: 4px;
-}
-
-.filter-option {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 2px;
-}
-
-.filter-option input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-}
-
-.filter-label {
-  font-size: 12px;
-}
-
-/* Colour swatches to match highlight colours */
-.filter-swatch {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  display: inline-block;
 }
 
 .swatch-anime {
@@ -216,4 +183,79 @@
 
 .legend-label {
   white-space: nowrap;
+}
+
+.map-header {
+  height: 250px;
+  padding: 0;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.events-section {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  border-right: 1px solid white;
+  padding-left: 15px;
+}
+
+.amenities-section {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.map-header-title {
+  font-size: 1.2em;
+  font-weight: 800;
+  margin-bottom: 10px;
+  border-top: 2px dashed black;
+  padding-top: 10px;
+}
+
+.map-header-subtitle {
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.filter-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.filter-option input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.filter-label {
+  font-size: 12px;
+}
+
+/* Colour swatches to match highlight colours */
+.filter-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  border: 3px solid black;
 }

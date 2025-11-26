@@ -115,27 +115,27 @@
 }
 
 .swatch-anime {
-  background: red;
+  background: violet;
 }
 
 .swatch-movie {
-  background: blue;
+  background: cyan;
 }
 
 .swatch-restroom {
-  background: orange;
+  background: tan;
 }
 
 .swatch-help-center {
-  background: purple;
+  background: red;
 }
 
 .swatch-food-court {
-  background: green;
+  background: orange;
 }
 
 .swatch-exit {
-  background: brown;
+  background: purple;
 }
 
 /* Optional: generic highlight styling if you want a bit of extra emphasis */
@@ -145,7 +145,7 @@
 
 /* Highlights based on saved events in localStorage */
 .map-panel.my-expo-highlight {
-  background: pink;
+  background: lightgreen;
 }
 
 /* If view_on_map is true, this should take precedence over my_expo */
@@ -178,7 +178,7 @@
 
 /* Match highlight colours from the map panels */
 .legend-swatch-my-expo {
-  background: pink;      /* My Events */
+  background: lightgreen;      /* My Events */
 }
 
 .legend-swatch-interest {
@@ -190,7 +190,7 @@
 }
 
 .map-header {
-  height: 250px;
+  height: 235px;
   padding: 0;
 }
 
@@ -224,7 +224,7 @@
 }
 
 .map-header-title {
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 800;
   margin-bottom: 10px;
   border-top: 2px dashed black;
@@ -249,6 +249,8 @@
 .filter-option input[type="checkbox"] {
   width: 20px;
   height: 20px;
+  outline: 1px solid black;
+  cursor: pointer;
 }
 
 .filter-label {
@@ -261,5 +263,5 @@
   height: 20px;
   border-radius: 10px;
   display: inline-block;
-  border: 3px solid black;
+  border: 2px solid black;
 }

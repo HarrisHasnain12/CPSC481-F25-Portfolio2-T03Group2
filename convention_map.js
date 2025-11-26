@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("showing convention map");
 
   const colorMap = {
-    anime: "red",
-    "movie-franchise": "blue",
-    restroom: "orange",
-    "help-center": "purple",
-    "food-court": "green",
-    "exit": "brown",
+    anime: "violet",
+    "movie-franchise": "cyan",
+    restroom: "tan",
+    "help-center": "red",
+    "food-court": "orange",
+    "exit": "purple",
   };
 
   // Map amenity filters to panel IDs

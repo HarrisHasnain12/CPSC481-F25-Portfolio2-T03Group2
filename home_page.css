@@ -31,7 +31,8 @@ body {
   background: #c62828;
   color: #ffffff;
   text-align: center;
-  padding: 40px 20px 32px;
+  padding: 30px 20px 30px;
+  border-bottom: 1px solid gray;
 }
 
 .expo-logo {
@@ -56,7 +57,7 @@ body {
 }
 
 .home-body {
-  padding: 24px 20px 20px;
+  padding: 24px 20px 0px;
   text-align: center;
   flex: 1;
   overflow-y: auto;   /* ✅ content scrolls, nav stays put */
@@ -72,7 +73,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   color: #444444;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .main-btn {
@@ -115,7 +116,7 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 10px 4px 18px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 2px solid gray;
   background: whitesmoke;
 }
 

@@ -5,7 +5,8 @@ async function loadPanelsFromFile() {
   try {
     const response = await fetch("panels.json");
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+          console.error("Failed to fetch panels.json:", response.status);
+          return null;
     }
 
     const data = await response.json(); // this is your JSON from panels.json
@@ -47,12 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
   ensureConventionPanels(); // run the logic when the home page loads
 
     // DELETE button logic
-  const deleteBtn = document.getElementById("delete-panels-btn");
-  if (deleteBtn) {
-    deleteBtn.addEventListener("click", () => {
-      localStorage.removeItem(STORAGE_KEY);
-      console.log("⚠️ Deleted convention_panels from localStorage");
-      alert("Successfully cleared convention panel data from local storage!");
-    });
-  }
+    const deleteBtn = document.getElementById("delete-panels-btn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", async () => {
+        // 1. Clear existing data
+        localStorage.removeItem(STORAGE_KEY);
+        console.log("⚠️ Deleted convention_panels from localStorage");
+
+        // 2. Reload default data from panels.json and save to localStorage
+        const data = await loadPanelsFromFile();
+
+        if (data) {
+          alert("Cleared and reset convention panel data to defaults!");
+        } else {
+          alert("Cleared convention panel data, but failed to reload defaults. Check console for errors.");
+        }
+      });
+    }
+
 });

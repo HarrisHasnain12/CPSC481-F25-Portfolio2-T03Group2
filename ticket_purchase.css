@@ -173,7 +173,7 @@ body {
       background: #4fc3f7;
       border: 0.5px solid white;
       outline: 0.5px solid white;
-      border-radius: 8px;
+      border-radius: 20px;
       padding: 0px 7px 3px 7px;
       font-size: 30px;
       color: white;
@@ -185,4 +185,19 @@ body {
       padding-top: 32px;
       padding-bottom: 24px;
       text-align: center;
+    }
+
+    .cart-button {
+        position: absolute;
+        right: 16px;
+        top: 57%;
+        transform: translateY(-50%);
+        background: #4fc3f7;
+        border: 0.5px solid white;
+        outline: 0.5px solid white;
+        border-radius: 15px;
+        padding: 7px 7px 4px 7px;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
     }

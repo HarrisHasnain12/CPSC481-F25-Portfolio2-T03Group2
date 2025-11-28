@@ -5,7 +5,6 @@
   <title>My Expo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Reuse base styling -->
   <link rel="stylesheet" href="home_page.css" />
 </head>
 
@@ -14,19 +13,39 @@
 
     <!-- HEADER -->
     <header class="home-header detail-header">
-      <div class="expo-logo"><span style="font-size: 0.9em;">My Expo</span></div>
-    </header>
-
-    <!-- BODY -->
-    <main class="home-body" style="text-align: center;">
-
-      <div style="font-size: 200px; margin-bottom: 20px;">
-        🎪
+      <div class="expo-logo">
+        <span style="font-size: 0.9em;">My Schedule</span>
       </div>
 
-      <p style="color: black; font-size: 18px;">
-        To be implemented by Hasan...
-      </p>
+      <div class="search">🔍</div>
+    </header>
+
+    <!-- DATE ROW -->
+    <div class="date-row">
+      <button class="date-btn active">
+        <span class="date-top">Apr 23</span>
+        <span class="date-bottom">THU</span>
+      </button>
+
+      <button class="date-btn">
+        <span class="date-top">Apr 24</span>
+        <span class="date-bottom">FRI</span>
+      </button>
+
+      <button class="date-btn">
+        <span class="date-top">Apr 25</span>
+        <span class="date-bottom">SAT</span>
+      </button>
+
+      <button class="date-btn">
+        <span class="date-top">Apr 26</span>
+        <span class="date-bottom">SUN</span>
+      </button>
+    </div>
+
+    <!-- BODY -->
+    <main class="home-body schedule-body">
+      <div id="eventList"></div>
     </main>
 
     <!-- NAV BAR -->
@@ -52,7 +71,84 @@
         <div class="tab-label">More</div>
       </a>
     </nav>
-
   </div>
+
+  <!-- JS AT THE BOTTOM SO DOM IS LOADED -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateButtons = document.querySelectorAll('.date-btn');
+      const eventList   = document.getElementById('eventList');
+
+      // Map "Apr 23" etc. to full JSON date
+      const dateMap = {
+        "Apr 23": "April 23rd, 2026",
+        "Apr 24": "April 24th, 2026",
+        "Apr 25": "April 25th, 2026",
+        "Apr 26": "April 26th, 2026"
+      };
+
+      let allEvents = [];
+      fetch('panel.json')
+        .then(response => response.json())
+        .then(data => {
+          allEvents = data.events.filter(e => e.added_to_my_expo);
+
+          renderEventsForDate("April 23rd, 2026");
+        })
+        .catch(err => {
+          console.error('Error loading events:', err);
+          if (eventList) {
+            eventList.innerHTML = '<p style="text-align:center; margin-top:20px;">Could not load events.</p>';
+          }
+        });
+
+      function renderEventsForDate(dateString) {
+        if (!eventList) return;
+
+        eventList.innerHTML = '';
+
+        const eventsForDate = allEvents.filter(e => e.date === dateString);
+
+        if (eventsForDate.length === 0) {
+          eventList.innerHTML =
+            '<p style="text-align:center; margin-top:20px;">No events in your schedule for this day.</p>';
+          return;
+        }
+
+        eventsForDate.forEach(ev => {
+          const card = document.createElement('a');
+          card.href = ev.event_detail_page || '#';
+          card.className = 'event-card';
+
+          card.innerHTML = `
+            <div class="event-icon">⭐</div>
+            <div class="event-info">
+              <div class="event-title">${ev.name}</div>
+              <div class="event-time">${ev.start_time} – ${ev.end_time}</div>
+              <div class="event-location">Panel ${ev.panel} • ${ev.property}</div>
+            </div>
+            <div class="event-check">📅</div>
+          `;
+
+          eventList.appendChild(card);
+        });
+      }
+
+      // Date button click logic
+      dateButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          dateButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const shortLabel = button.querySelector('.date-top').textContent.trim();
+          const fullDate   = dateMap[shortLabel];
+
+          if (fullDate) {
+            renderEventsForDate(fullDate);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

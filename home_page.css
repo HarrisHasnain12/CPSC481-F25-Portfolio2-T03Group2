@@ -186,3 +186,55 @@ body {
       padding-bottom: 24px;
       text-align: center;
     }
+
+    .search {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16 px;
+      right: 16px;
+      cursor: pointer;
+    }
+
+    .date-row {
+  background: #c62828;          
+  padding: 8px 16px 14px;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+
+}
+
+.date-btn {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.date-top {
+  font-size: 11px;
+}
+
+.date-bottom {
+  font-size: 13px;
+}
+
+.date-btn.active {
+  background: #ffffff;
+  color: #c62828;
+  border-radius: 12px;
+  padding: 6px 14px;
+}
+
+.home-header,
+.detail-header,
+.center-search-header {
+  border-bottom: none;
+  box-shadow: none;
+}

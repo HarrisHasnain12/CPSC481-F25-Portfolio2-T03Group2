@@ -27,15 +27,100 @@
     <!-- BODY -->
     <main class="home-body" style="text-align: center;">
 
-      <div style="font-size: 200px; margin-bottom: 20px;">
-        🎟️
-      </div>
+      <div style="font-size: 24px; margin-bottom: 20px;">
+        <p style="text-align: left; color: black; font-weight: bold;">
+  Select Ticket 
+  <a id="dropdownBtn" class="dropdown-button" aria-label="View Tickets" style="text-decoration: none;">
+    <i class="fa-solid fa-chevron-down pointer"></i>
+  </a>
+</p>
 
+<div class="dropdown">
+  <div id="dropdownMenu" class="dropdown-content hide">
+    <div class="dropdown-title">Multi-Day</div>
+    <a href="#4day">4-Day</a>
+    <a href="#Ultimate">Ultimate</a>
+    <a href="#VIP">VIP</a>
+    <div class="dropdown-title">Single Day</div>
+    <a href="#thurs">Thursday</a>
+    <a href="#fri">Friday</a>
+    <a href="#sat">Saturday</a>
+    <a href="#sun">Sunday</a>
+    <div class="dropdown-title">Family Passes</div>
+    <a href="#fthurs">Thursday</a>
+    <a href="#ffri">Friday</a>
+    <a href="#fsat">Saturday</a>
+    <a href="#fsun">Sunday</a>
+    <div class="dropdown-title">Youth Single Day</div>
+    <a href="#ythurs">Thursday</a>
+    <a href="#yfri">Friday</a>
+    <a href="#ysat">Saturday</a>
+    <a href="#ysun">Sunday</a>
+    <div class="dropdown-title">Child Passes</div>
+    <a href="cpass">Child Pass</a>
+  </div>
+</div>
+
+<script src="ticket_purchase.js"></script>
+        <!--
+        <label for "tickets">Select Ticket</label>
+        <select name="tickets" id="tickets">
+          <optgroup label="Multi-Day">
+            <option value="4-Day">4-Day</option>
+            <option value="Ultimate">Ultimate</option>
+            <option value="VIP">VIP</option>
+          </optgroup>
+          <optgroup label="Single Day">
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </optgroup>
+          <optgroup label="Family Passes">
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </optgroup>
+          <optgroup label="Youth Single Day">
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </optgroup>
+          <optgroup label="Child Pass">
+            <option value="Child Pass">Child Pass</option>
+          </optgroup>
+        </select>
+      </div>
+    -->
       <p style="color: black; font-size: 18px;">
         To be implemented by Dylan...
       </p>
     </main>
 
+
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
     <!-- NAV BAR 
     <nav class="tab-bar">
       <a class="tab-item active" href="home_page.html">

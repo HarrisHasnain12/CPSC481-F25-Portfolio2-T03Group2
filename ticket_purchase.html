@@ -17,134 +17,304 @@
       <a id="back-button" class="back-button" aria-label="Go back" href="home_page.html" style="text-decoration: none;">←</a>
       <div class="top-bar"><span style="font-size: 1.5em;">Purchase Tickets</span></div>
       <a id="cart-button" class="cart-button" aria-label="View cart" href="ticket_cart.html" style="text-decoration: none;"><head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-  <i class="fa-solid fa-cart-shopping"></i>
-</body></a>
+      <body>
+        <i class="fa-solid fa-cart-shopping"></i>
+      </body></a>
     </header>
 
     <!-- BODY -->
     <main class="home-body" style="text-align: center;">
-
-      <div style="font-size: 24px; margin-bottom: 20px;">
-        <p style="text-align: left; color: black; font-weight: bold;">
-  Select Ticket 
-  <a id="dropdownBtn" class="dropdown-button" aria-label="View Tickets" style="text-decoration: none;">
-    <i class="fa-solid fa-chevron-down pointer"></i>
-  </a>
-</p>
-
-<div class="dropdown">
-  <div id="dropdownMenu" class="dropdown-content hide">
-    <div class="dropdown-title">Multi-Day</div>
-    <a href="#4day">4-Day</a>
-    <a href="#Ultimate">Ultimate</a>
-    <a href="#VIP">VIP</a>
-    <div class="dropdown-title">Single Day</div>
-    <a href="#thurs">Thursday</a>
-    <a href="#fri">Friday</a>
-    <a href="#sat">Saturday</a>
-    <a href="#sun">Sunday</a>
-    <div class="dropdown-title">Family Passes</div>
-    <a href="#fthurs">Thursday</a>
-    <a href="#ffri">Friday</a>
-    <a href="#fsat">Saturday</a>
-    <a href="#fsun">Sunday</a>
-    <div class="dropdown-title">Youth Single Day</div>
-    <a href="#ythurs">Thursday</a>
-    <a href="#yfri">Friday</a>
-    <a href="#ysat">Saturday</a>
-    <a href="#ysun">Sunday</a>
-    <div class="dropdown-title">Child Passes</div>
-    <a href="cpass">Child Pass</a>
-  </div>
-</div>
-
-<script src="ticket_purchase.js"></script>
-        <!--
-        <label for "tickets">Select Ticket</label>
-        <select name="tickets" id="tickets">
-          <optgroup label="Multi-Day">
-            <option value="4-Day">4-Day</option>
-            <option value="Ultimate">Ultimate</option>
-            <option value="VIP">VIP</option>
-          </optgroup>
-          <optgroup label="Single Day">
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-            <option value="Sunday">Sunday</option>
-          </optgroup>
-          <optgroup label="Family Passes">
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-            <option value="Sunday">Sunday</option>
-          </optgroup>
-          <optgroup label="Youth Single Day">
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-            <option value="Sunday">Sunday</option>
-          </optgroup>
-          <optgroup label="Child Pass">
-            <option value="Child Pass">Child Pass</option>
-          </optgroup>
-        </select>
+<!--
+      <label class="compare">
+          <input
+              type="checkbox"
+              class="compare-checkbox"
+              name="ticket-compare"
+              value="toggle-compare"
+          />
+      -->
+      <div id="ticketHeaderContainer" class="ticket-header">
+        <h2 style="font-size: 24px; text-align: left; color: black; font-weight: bold;" id="ticketHeader">Select Ticket</h2>
+          
+            <a id="dropdownBtn" class="dropdown-button" aria-label="View Tickets" style="text-decoration: none; font-size: 24px;">
+              <i class="fa-solid fa-chevron-down pointer"></i>
+            </a>
       </div>
-    -->
-      <p style="color: black; font-size: 18px;">
-        To be implemented by Dylan...
-      </p>
+
+      <div class="dropdown">
+        <div id="dropdownMenu" class="dropdown-content hide">
+          <div class="dropdown-title">Multi-Day</div>
+          <a href="#" data-ticket="4day">4-Day</a>
+          <a href="#" data-ticket="ultimate">Ultimate</a>
+          <a href="#" data-ticket="vip">VIP</a>
+
+          <div class="dropdown-title">Single Day</div>
+          <a href="#" data-ticket="thurs" data-display="Single Day: Thursday">Thursday</a>
+          <a href="#" data-ticket="fri" data-display="Single Day: Friday">Friday</a>
+          <a href="#" data-ticket="sat" data-display="Single Day: Saturday">Saturday</a>
+          <a href="#" data-ticket="sun" data-display="Single Day: Sunday">Sunday</a>
+
+          <div class="dropdown-title">Family Passes</div>
+          <a href="#" data-ticket="fthurs" data-display="Family Pass: Thursday">Thursday</a>
+          <a href="#" data-ticket="ffri" data-display="Family Pass: Friday">Friday</a>
+          <a href="#" data-ticket="fsat" data-display="Family Pass: Saturday">Saturday</a>
+          <a href="#" data-ticket="fsun" data-display="Family Pass: Sunday">Sunday</a>
+
+          <div class="dropdown-title">Youth Single Day</div>
+          <a href="#" data-ticket="ythurs" data-display="Youth Pass: Thursday">Thursday</a>
+          <a href="#" data-ticket="yfri" data-display="Youth Pass: Friday">Friday</a>
+          <a href="#" data-ticket="ysat" data-display="Youth Pass: Saturday">Saturday</a>
+          <a href="#" data-ticket="ysun" data-display="Youth Pass: Sunday">Sunday</a>
+
+          <div class="dropdown-title">Child Passes</div>
+          <a href="#" data-ticket="cpass" data-display="Child Pass">Child Pass</a>
+
+        </div>
+      </div>
+
+
+      <div id="ticketDescriptions" class="desc-container">
+        <div class="desc" id="desc-4day">
+          <strong>INCLUDES:</strong>
+          <ul>
+          <li>Admission to all 4 days of CALGARY EXPO™</li>
+          <li>Show Floor Access</li>
+          <li>Room/Theatre Access </li>
+          <li> Souvenir Badge</li>
+          </ul>
+          <strong>4-DAY PASS BENEFITS:</strong>
+          <ul>
+          <li>Access to the Special Preview on Thursday at 2 PM </li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-ultimate">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to all 4 days of CALGARY EXPO™</li>
+            <li>Show Floor Access</li>
+            <li>Room/Theatre Access </li>
+            <li> Limited Edition CALGARY EXPO™ Ultimate Badge</li>
+          </ul>
+          <strong>ULTIMATE FAN PACKAGE BENEFITS</strong>
+          <ul>
+            <li>Access to the Special Preview on Thursday at 2PM</li>
+            <li>Exclusive Ticket Pick Up Counter</li>
+            <li>Exclusive Ultimate Lounge Access</li>
+            <li>Celebrity Photo Op 24-hour Purchase Guarantee</li>
+            <li>Limited Edition CALGARY EXPO™ Bag</li>
+            <li>Limeted Edition Comic from Major Publisher</li>
+            <li>ThrillJoy Lord of the Rings Blind Box Figure</li>
+            <li>Exclusive Lithograph</li>
+            <li>10% off coupon at the CALGARY EXPO™ Store</li>
+            <li>Your next show is on us! Free single day General Admission (excluding Saturdays) to ALL FUTURE FAN EXPO HQ events until, but not including CALGARY EXPO™ 2027 & VidCon™.</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-vip">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to all 4 days of CALGARY EXPO™</li>
+            <li>Show Floor Access</li>
+            <li>Panel Rooms/Theatre Access</li>
+            <li>Limited Edition CALGARY EXPO™ VIP Badge</li>
+          </ul>
+          <strong>VIP PACKAGE BENEFITS</strong>
+          <ul>
+            <li>Access to the Special Preview on Thursday at 2 PM</li>
+            <li>Head Start to the Show Floor at 11:30 AM on Friday, &amp; 9:30 AM on Saturday &amp; Sunday</li>
+            <li>Complimentary Express Shipping of VIP Pass</li>
+            <li>Priority Entrance</li>
+            <li>Exclusive VIP Lounge Access</li>
+            <li>Complimentary Bag &amp; Coat Check in Lounge</li>
+            <li>VIP Virtual Concierge</li>
+            <li>VIP Express Pass for Celebrity Autograph &amp; Photo Op Areas</li>
+            <li>VIP Priority Access to Main Theatre Presentations</li>
+            <li>Limited Edition CALGARY EXPO™ Lanyard</li>
+            <li>Limited Edition CALGARY EXPO™ T-shirt</li>
+            <li>Limited Edition CALGARY EXPO™ Bag</li>
+            <li>Limited Edition Comic from Major Publisher</li>
+            <li>ThrillJoy Lord of the Rings Blind Box Figure</li>
+            <li>ThrillJoy Lord of the Rings Blind Box Figure</li>
+            <li>Exclusive Lithograph</li>
+            <li>Bring a Friend for FREE on Thursday</li>
+            <li>20% off coupon at the CALGARY EXPO™ Store</li>
+            <li>First right to renew VIP Package for CALGARY EXPO™ 2027</li>
+            <li>First right to renew VIP Package for CALGARY EXPO™ 2027</li>
+            <li>Your next show is on us! Unlimited Admission to ALL FUTURE FAN EXPO HQ events until, but not including, CALGARY EXPO™ 2027 &amp; VidCon™.</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-thurs">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 4 PM - 9 PM on Thursday, April 23, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fri">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 12 PM - 8 PM on Friday, April 24, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-sat">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 7 PM on Saturday, April 25, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-sun">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 5 PM on Sunday, April 26, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fthurs">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 4 PM - 9 PM on Thursday, April 23, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-ffri">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 12 PM - 8 PM on Friday, April 24, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fsat">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 7 PM on Saturday, April 25, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fsun">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 5 PM on Sunday, April 26, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-ythurs">
+          <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+          <strong>INCLUDES:</strong>
+            <ul>
+              <li>Admission to CALGARY EXPO™ 4 PM - 9 PM on Thursday, April 23, 2026</li>
+              <li>Show Floor Access</li>
+              <li>Panel Room/Theatre Access</li>
+              <li>Souvenir Badge</li>
+            </ul>
+          </div>
+
+          <div class="desc" id="desc-yfri">
+            <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+            <strong>INCLUDES:</strong>
+            <ul>
+              <li>Admission to CALGARY EXPO™ 12 PM - 8 PM on Friday, April 24, 2026</li>
+              <li>Show Floor Access</li>
+              <li>Panel Room/Theatre Access</li>
+              <li>Souvenir Badge</li>
+            </ul>
+          </div>
+
+          <div class="desc" id="desc-ysat">
+            <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+            <strong>INCLUDES:</strong>
+            <ul>
+              <li>Admission to CALGARY EXPO™ 10 AM - 7 PM on Saturday, April 25, 2026</li>
+              <li>Show Floor Access</li>
+              <li>Panel Room/Theatre Access</li>
+              <li>Souvenir Badge</li>
+            </ul>
+        </div>
+
+        <div class="desc" id="desc-ysun">
+          <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 5 PM on Sunday, April 26, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-cpass">
+          <p>
+            If you buy a Child Pass (ages 6-12), they'll receive the same show access as your Adult Pass!*
+            <br>
+            <br>
+            Children 12 and under must be accompanied by an adult at all times. Child admission pass holders will receive a child wristband.
+            <br>
+            <br>
+            *Excludes specially ticketed experiences &amp; merchandise.
+          </p>
+        </div>
+
+      </div>
+
+      <hr class="content-divider" />
+
+      <h2 style="font-size: 24px; color: black; font-weight: bold; padding-top: 16px;" id="ticketHeader">April</h2>
+
+      <div class="day-buttons">
+        <button class="ticket-btn" data-ticket="thurs">23</button>
+        <button class="ticket-btn" data-ticket="fri">24</button>
+        <button class="ticket-btn" data-ticket="sat">25</button>
+        <button class="ticket-btn" data-ticket="sun">26</button>
+      </div>
+
+      
+
+
     </main>
 
-
-    <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-    <!-- NAV BAR 
-    <nav class="tab-bar">
-      <a class="tab-item active" href="home_page.html">
-        <div class="tab-icon">𖠿</div>
-        <div class="tab-label">Home</div>
-      </a>
-      <a class="tab-item" href="browse_events.html">
-        <div class="tab-icon">☆</div>
-        <div class="tab-label">Events</div>
-      </a>
-      <a class="tab-item" href="convention_map.html">
-        <div class="tab-icon">➢</div>
-        <div class="tab-label">Navigation</div>
-      </a>
-      <a class="tab-item" href="my_expo.html">
-        <div class="tab-icon" style="padding-top: 3px;">☺︎</div>
-        <div class="tab-label">My Expo</div>
-      </a>
-      <a class="tab-item" href="more.html">
-        <div class="tab-icon">☰</div>
-        <div class="tab-label">More</div>
-      </a>
+    <nav class="checkout">
+        <button class="checkout-btn" id="addCart">Add to Cart</button>
+        <button class="checkout-btn" id="buyNow">Buy Now</button>
     </nav>
-  -->
-  </div>
+
+    <script src="ticket_purchase.js"></script>
+
 </body>
 </html>

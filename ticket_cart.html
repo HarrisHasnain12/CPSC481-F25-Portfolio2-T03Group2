@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Reuse base styling -->
+  <link rel="stylesheet" href="ticket_purchase.css" />
+  <!-- Delete icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+</head>
+
+<body>
+  <div class="phone">
+
+    <!-- HEADER -->
+    <header class="home-header detail-header">
+      <a id="back-button" class="back-button" aria-label="Go back" href="ticket_purchase.html" style="text-decoration: none;">←</a>
+      <div class="top-bar"><span style="font-size: 1.5em;">Cart</span></div>
+    </header>
+
+    <!-- BODY -->
+    <main class="home-body" style="text-align: center;">
+        <div class="ticket-title">
+            Ticket Stuff 1
+            <span class="ticket-price">amount</span>
+        </div>
+        
+            <div class="modify-cart">
+                <div class="ticket-mod">
+                    <button class="num-mod" id="trash"><i class="fa fa-trash"></i></button>
+                    <button class="num-mod" id="sub1">-</button>
+                    <button class="num-mod" id="add1">+</button>
+                    <span style="padding-left: 10px;">1</span>
+                </div>
+            </div>
+        <div class="ticket-info">ticket info</div>
+
+
+        <hr class="content-divider" />
+
+        <div class="ticket-title">
+            Ticket Stuff 2
+            <span class="ticket-price">amount</span>
+
+        </div>
+
+        <div class="modify-cart">
+                <div class="ticket-mod">
+                    <button class="num-mod" id="trash"><i class="fa fa-trash"></i></button>
+                    <button class="num-mod" id="sub1">-</button>
+                    <button class="num-mod" id="add1">+</button>
+                    <span style="padding-left: 10px;">1</span>
+                </div>
+            </div>
+        <div class="ticket-info">ticket info</div>
+
+        <hr class="content-divider" />
+
+
+        
+
+
+    </main>
+    <hr class="content-divider" />
+    <div class="subtotal">
+        Subtotal
+        <span>amount</span>
+    </div>
+
+    <hr class="content-divider" />
+
+    <nav class="checkout">
+        <button class="checkout-btn red" id="buyNow">Buy Now</button>
+    </nav>
+
+</body>
+</html>

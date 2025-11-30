@@ -369,13 +369,87 @@ body {
       border-radius: 12px;
       border: 2px solid #ccc;
       background-color: #fff;
-      padding: 5px 7px 5px 7px;
+      padding: 10px 55px 10px 55px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: lighter;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .checkout-btn:hover{
+      background-color: #4fc3f7;
+    }
+
+    .cost {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .num-mod {
+      font-size: 16px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 3px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .red {
+      background-color: #c62828;
+      color: #fff;
+    }
+
+    .subtotal {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: space-between;
+      padding: 10px;
+    }
+
+    .ticket-title {
+      display: flex;
+      font-size: 24px;
+      text-align: left;
+      font-weight: bold;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+
+    .ticket-price {
+      font-size: 14px;
+      font-weight: normal;
+      padding-top: 5px;
+    }
+
+    .ticket-mod {
+      text-align: right;
+    }
+
+    #trash {
+      border-radius: 50%;
+      text-align: center;
+      padding: 0;
+      width: 25px;
+      height: 25px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      color: red;
       cursor: pointer;
       font-size: 16px;
       font-weight: bold;
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
     }
 
-    .checkout-btn:hover{
-      background-color: #4fc3f7;
+    #trash:hover {
+  background-color: #ffe5e5;
+  border-color: red;
+    }
+
+    .ticket-info {
+      height: 145px;
+      overflow-y: auto;
+      position: relative;
     }

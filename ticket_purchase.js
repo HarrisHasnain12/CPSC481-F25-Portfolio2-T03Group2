@@ -79,5 +79,5 @@ dayButtons.forEach(button => {
 });
 
 buyNow.addEventListener('click', () => {
-    
+
 });

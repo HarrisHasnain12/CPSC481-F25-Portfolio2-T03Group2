@@ -13,7 +13,7 @@
   <div class="phone">
 
     <header class="home-header detail-header">
-      <a id="back-button" class="back-button" aria-label="Go back" href="home_page.html" style="text-decoration: none;">←</a>
+      <a id="back-button" class="back-button" aria-label="Go back" href="ticket_purchase.html" style="text-decoration: none;">←</a>
       <div class="top-bar"><span style="font-size: 1.5em;">Checkout</span></div>
       <a id="cart-button" class="cart-button" aria-label="View cart" href="ticket_cart.html" style="text-decoration: none;"><head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -24,8 +24,110 @@
     </header>
 
     <main class="home-body" style="text-align: center;">
+        <div class="checkout-title">
+            Ticket Stuff 2
+            <div class="modify-cart">
+                <div class="checkout-mod">
+                    <button class="chek-mod" id="chekTrash"><i class="fa fa-trash"></i></button>
+                    <button class="chek-mod" id="sub1">&minus;</button>
+                    <button class="chek-mod" id="add1">+</button>
+                    <span style="padding-left: 10px;">1</span>
+                </div>
+            </div>
+            <span class="ticket-price">$100</span>
+        </div>
+
+        <hr class="content-divider" />
+
+        <div class="checkout-title">
+            Ticket Stuff 2
+            <div class="modify-cart">
+                <div class="checkout-mod">
+                    <button class="chek-mod" id="chekTrash"><i class="fa fa-trash"></i></button>
+                    <button class="chek-mod" id="sub1">&minus;</button>
+                    <button class="chek-mod" id="add1">+</button>
+                    <span style="padding-left: 10px;">1</span>
+                </div>
+            </div>
+            <span class="ticket-price">$100</span>
+        </div>
+
+        <hr class="content-divider" />
+
+
+        <div class="checkbox-wrapper">
+            <label class="checkbox-container">
+            <input type="checkbox" id="shipIt">
+            <span class="checkmark"></span>
+            Ship Tickets to Home?
+            </label>
+        </div>
+
+
+        <div class="hide" id="shippingFields">
+            <input class="shipBox" type="text" id="shipName" placeholder="First and Last Name">
+            <input class="shipBox" type="text" id="shipEmail" placeholder="Email Address">
+            <input class="shipBox" type="text" id="shipAddy" placeholder="Street Address">
+            <input class="shipBox" type="text" id="shipCity" placeholder="City">
+            <input class="shipBox" type="text" id="shipZip" placeholder="Postal Code">
+            <button class="save" id="saveShipping">Save</button>
+        </div>
+
         
+        <div class="ship-container" id="shippingInfo">
+        <div id="shippingSaved"></div>
+        <button class="edit">Edit</button>
+        </div>
+        
+        <div class="hide" id="payfield">
+            <input class="credBox" type="text" id="cardName" placeholder="Cardholder Name">
+            <input class="credBox" type="text" id="cardNum" placeholder="Card Number">
+            <div class="expire">
+            <input class="credBox" type="text" id="cardExp" placeholder="Expiration Date">
+            <input class="credBox" type="text" id="cardCCV" placeholder="CCV">
+            </div>
+        </div>
+
+
+
     </main>
+
+    <hr class="content-divider" />
+
+    <div class="subtotal-container">
+    <div class="subtotal">
+        Subtotal
+        <span>amount</span>
+    </div>
+    <div class="subtotal" id="tax">
+        Tax
+        <span>amount</span>
+    </div>
+    <div class="subtotal" id="shipping" style="padding-bottom: 5px;">
+        Shipping
+        <span>amount</span>
+    </div>
+
+    <hr class="content-divider" />
+
+    <div class="subtotal" id="total" style="padding-top: 5px;">
+        Total
+        <span>amount</span>
+    </div>
+  </div>
+
+    <nav class="payment" id="paymentButtons">
+        <button class="payment-btn" id="appl-pay">Pay</button>
+        <button class="payment-btn" id="pay-pal"><i class="fa-brands fa-paypal"></i><span style="font-weight: bold; font-style: italic;">PayPal</span></button>
+        <button class="payment-btn" id="deb-cred">Debit / Credit</button>
+    </nav>
+
+    <nav class="payment" id="finalCheckout">
+        <button class="payment-btn" id="checkout">Complete Checkout</button>
+    </nav>
+
+
+        <script src="ticket_checkout.js"></script>
 
 </body>
 </html>

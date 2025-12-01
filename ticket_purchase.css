@@ -355,6 +355,9 @@ body {
       background-color: #e65454;
     }
 
+
+
+    /*ticket_cart.html origin (used in ticket_purchase.html and ticket_checkout.html)*/
     .checkout {
       display: flex;
       flex-direction: row;
@@ -406,7 +409,10 @@ body {
       flex-direction: row;
       justify-content: space-between;
       align-content: space-between;
-      padding: 10px;
+    }
+
+    .subtotal-container {
+      padding: 5px 10px 15px 10px;
     }
 
     .ticket-title {
@@ -452,4 +458,235 @@ body {
       height: 145px;
       overflow-y: auto;
       position: relative;
+    }
+
+
+
+
+    /* ticket_checkout.html specific */
+
+    .checkout-title {
+      display: flex;
+      flex-direction: row;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      justify-content: space-between;
+      padding-top: 5px;
+    }
+
+    .checkout-mod {
+      font-size: 12px;
+      padding-bottom: 3px;
+    }
+
+    .chek-mod {
+      font-size: 12px;
+      padding-left: 6px;
+      padding-right: 6px;
+      padding-bottom: 3px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #chekTrash {
+      border-radius: 50%;
+      text-align: center;
+      padding: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      color: red;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .payment {
+      text-align: center;
+      padding-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      padding-left: 45px;
+      padding-right: 45px;
+    }
+
+    .payment-btn {
+      border-radius: 15px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      padding: 10px 55px 10px 55px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      margin-bottom: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: normal;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    #appl-pay {
+      background-color: #000;
+      color: #fff;
+    }
+
+    #pay-pal {
+      font-weight: lighter;
+      background-color: #0070BA;
+      color: #fff;
+    }
+
+    .ship {
+      justify-content: left;
+      text-align: left;
+      align-items: left;
+    }
+
+    .ship-textbox {
+      justify-content: left;
+      text-align: left;
+      align-items: left;
+    }
+
+    .checkbox-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .checkmark {
+      height: 20px;
+      width: 20px;
+      border-radius: 4px;
+      border: 2px solid #444;
+      display: inline-block;
+      position: relative;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 1px;
+      width: 6px;
+      height: 12px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .checkbox-container input:checked ~ .checkmark {
+      background-color: #2196f3;
+      border-color: #2196f3;
+    }
+
+    .checkbox-container input:checked ~ .checkmark::after {
+      display: block;
+    }
+
+    #shippingFields {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .shipBox {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .save {
+      display: flex;
+      border-radius: 15px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      padding: 10px 20px 10px 20px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      margin-bottom: 5px;
+      justify-content: center;
+      margin-left: 100px;
+      margin-right: 100px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: normal;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .ship-container {
+      display: none;
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+
+    }
+
+    .edit {
+      display: flex;
+      border-radius: 15px;
+      border: 2px solid #ccc;
+      background-color: #fff;
+      padding: 10px 20px 10px 20px;
+      height: 42px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      margin-bottom: 5px;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: normal;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    #shippingSaved {
+      color: #959595;
+      font-size: small;
+      padding-top: 3px;
+      margin-left: 10px;
+    }
+
+    #payfield {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .credBox {
+      margin-bottom: 10px;
+      padding: 5px;
+      margin-right: 6.5px;
+    }
+
+    .expire {
+      display: flex;
+      justify-content: left;
+      padding-right: 5px;
+      margin-right: 5px;
+    }
+
+    #cardCCV {
+      display: flex;
+      margin-right: 5px;
+    }
+
+    #finalCheckout {
+      display: none;
+    }
+
+    #checkout {
+      
+      background-color: #2196f3;
+      color: #fff;
+      border-color: #2196f3;
     }

@@ -214,22 +214,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
+
+  height: 52px;          
+  width: 58px;           
+  padding: 0;            
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .date-top {
   font-size: 11px;
+  line-height: 1;
 }
 
 .date-bottom {
   font-size: 13px;
+  line-height: 1;
 }
 
 .date-btn.active {
   background: #ffffff;
   color: #c62828;
-  border-radius: 12px;
-  padding: 6px 14px;
+  border-radius: 10px;
+
+  height: 52px;         
+  width: 58px;      
 }
 
 .home-header,

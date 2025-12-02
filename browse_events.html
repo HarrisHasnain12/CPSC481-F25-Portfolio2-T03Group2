@@ -7,6 +7,8 @@
 
   <!-- Reuse base styling -->
   <link rel="stylesheet" href="home_page.css" />
+
+  <link rel="stylesheet" href="browse_events.css" />
 </head>
 
 <body>
@@ -18,16 +20,30 @@
     </header>
 
     <!-- BODY -->
-    <main class="home-body" style="text-align: center;">
+  <main class="home-body" style="text-align: center;">
 
-      <div style="font-size: 200px; margin-bottom: 20px;">
-        📆
-      </div>
+    <div class="date-header">
+      April 23rd, 2026
+    </div>
+    <div class="events-day" data-events-date="April 23rd"></div>
 
-      <p style="color: black; font-size: 18px;">
-        To be implemented by Labib...
-      </p>
-    </main>
+    <div class="date-header">
+      April 24th, 2026
+    </div>
+    <div class="events-day" data-events-date="April 24th"></div>
+
+    <div class="date-header">
+      April 25th, 2026
+    </div>
+    <div class="events-day" data-events-date="April 25th"></div>
+
+    <div class="date-header">
+      April 26th, 2026
+    </div>
+    <div class="events-day" data-events-date="April 26th"></div>
+
+  </main>
+
 
     <!-- NAV BAR -->
     <nav class="tab-bar">
@@ -54,5 +70,156 @@
     </nav>
 
   </div>
+    <script>
+    const STORAGE_KEY = "convention_panels";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("browse_events page loaded");
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) {
+        console.error("Could not retrieve convention_panels from localStorage.");
+        return;
+      }
+
+      let conventionPanels;
+      try {
+        conventionPanels = JSON.parse(saved);
+      } catch (err) {
+        console.error("Error parsing convention_panels:", err);
+        return;
+      }
+
+      if (!conventionPanels || !Array.isArray(conventionPanels.events)) {
+        console.error("Invalid convention_panels structure (missing events array).");
+        return;
+      }
+
+      const events = conventionPanels.events;
+
+      // Map date string (e.g. "April 23rd") to its container
+      const dateSections = {};
+      document.querySelectorAll(".events-day[data-events-date]").forEach((container) => {
+        const date = container.getAttribute("data-events-date");
+        dateSections[date] = container;
+      });
+
+      events.forEach((event) => {
+        const container = dateSections[event.date];
+        if (!container) {
+          console.warn("No container found for event date:", event.date);
+          return;
+        }
+
+        // --- Create event row ---
+        const item = document.createElement("div");
+        item.className = "event-item";
+
+        // LEFT: image + property tag (similar style to event_marvel hero)
+        const left = document.createElement("div");
+        left.className = "event-left";
+
+        const thumb = document.createElement("div");
+        thumb.className = "event-thumb";
+
+        const img = document.createElement("img");
+        img.src = event.image;
+        img.alt = event.name || "event image";
+
+        const tag = document.createElement("div");
+        tag.className = "event-tag-small";
+        tag.textContent = event.property || "";
+
+        thumb.appendChild(img);
+        thumb.appendChild(tag);
+        left.appendChild(thumb);
+
+        // CENTER: name, date, times, panel
+        const center = document.createElement("div");
+        center.className = "event-center";
+
+        const nameEl = document.createElement("div");
+        nameEl.className = "event-name";
+        nameEl.textContent = event.name || "";
+
+        const timeEl = document.createElement("div");
+        timeEl.className = "event-time";
+        timeEl.textContent = `${event.date} • ${event.start_time} – ${event.end_time}`;
+
+        const panelEl = document.createElement("div");
+        panelEl.className = "event-panel";
+        panelEl.textContent = `Panel: ${event.panel}`;
+
+        center.appendChild(nameEl);
+        center.appendChild(timeEl);
+        center.appendChild(panelEl);
+
+        // RIGHT: buttons
+        const right = document.createElement("div");
+        right.className = "event-right";
+
+        // View Details button
+        const detailsBtn = document.createElement("button");
+        detailsBtn.className = "event-btn view-details-btn";
+        detailsBtn.textContent = "View Details";
+        detailsBtn.addEventListener("click", () => {
+          if (event.event_detail_page) {
+            window.location.href = event.event_detail_page;
+          } else {
+            console.error("No event_detail_page specified for event:", event);
+          }
+        });
+
+        // Add / Remove My Expo button
+        const expoBtn = document.createElement("button");
+        expoBtn.className = "event-btn expo-toggle-btn";
+
+        function updateExpoButton() {
+          if (event.added_to_my_expo) {
+            expoBtn.textContent = "Remove from My Expo";
+            expoBtn.classList.remove("add");
+            expoBtn.classList.add("remove");
+          } else {
+            expoBtn.textContent = "Add to My Expo";
+            expoBtn.classList.remove("remove");
+            expoBtn.classList.add("add");
+          }
+        }
+
+        expoBtn.addEventListener("click", () => {
+          // Toggle flag in the in-memory event object
+          event.added_to_my_expo = !event.added_to_my_expo;
+          updateExpoButton();
+
+          // Save updated data back to localStorage
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(conventionPanels));
+            console.log(
+              "Updated added_to_my_expo for event id",
+              event.id,
+              "->",
+              event.added_to_my_expo
+            );
+          } catch (err) {
+            console.error("Failed to save updated convention_panels:", err);
+          }
+        });
+
+        // Initialize button text/colors
+        updateExpoButton();
+
+        right.appendChild(detailsBtn);
+        right.appendChild(expoBtn);
+
+        // Assemble row
+        item.appendChild(left);
+        item.appendChild(center);
+        item.appendChild(right);
+
+        container.appendChild(item);
+      });
+    });
+    </script>
+
 </body>
 </html>

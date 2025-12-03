@@ -1,11 +1,12 @@
 .date-header {
   font-size: 30px;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
-  text-decoration: underline;
-  border-top: 2px solid black;
-  padding-top: 5px;
-  margin-bottom: 12px;
+  text-decoration: none;
+  font-style: italic;
+  border-top: 2px dashed black;
+  padding-top: 15px;
+  margin-bottom: 20px;
 }
 
 /* Container for the day's events */

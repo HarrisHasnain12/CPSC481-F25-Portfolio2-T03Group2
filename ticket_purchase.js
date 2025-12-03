@@ -10,12 +10,12 @@ const display = document.getElementById("ticketCount");
 const addBtn = document.getElementById("add");
 const subtractBtn = document.getElementById("subtract");
 const ticketPrice = document.getElementById("ticketPrice");
-const Cart = {
+ const Cart = {
     cookieName: "tickets",
     load() {
         const data = getCookie(this.cookieName);
+        console.log(data);
         return data? JSON.parse(data) : [];
-
     },
 
     save(cart) {
@@ -160,6 +160,7 @@ function addToCart() {
         name: selectedTicket.name,
         quantity: count
     });
+    console.log(document.cookie);
     console.log("Ticket added!");
     console.log("Cart upadated:", Cart.load());
 };
@@ -172,9 +173,11 @@ function setCookie(name, value, days = 7) {
 
 //retrieve cookie
 function getCookie(name) {
+    //const decoded = decodeURIComponent(document.cookie(name));
     const cookies = document.cookie.split("; ");
+    console.log(cookies);
     for (const c of cookies) {
-        const [key, val] = c.split("");
+        const [key, val] = c.split("=");
         if (key === name) return decodeURIComponent(val);
     }
     return null;

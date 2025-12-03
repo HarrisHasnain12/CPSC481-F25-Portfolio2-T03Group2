@@ -22,51 +22,255 @@
 
     <!-- BODY -->
     <main class="home-body" style="text-align: center;">
-        <div class="ticket-title">
-            Ticket Stuff 1
-            <span class="ticket-price">amount</span>
-        </div>
-        
-            <div class="modify-cart">
-                <div class="ticket-mod">
-                    <button class="num-mod" id="trash"><i class="fa fa-trash"></i></button>
-                    <button class="num-mod" id="sub1">-</button>
-                    <button class="num-mod" id="add1">+</button>
-                    <span style="padding-left: 10px;">1</span>
+
+        <template id="cart-item-template">
+            <div class="cart-item">
+                <div class="ticket-title">
+                    <span class="true-title"></span>
+                    <span class="ticket-price"></span>
                 </div>
+                
+                    <div class="modify-cart">
+                        <div class="ticket-mod">
+                            <button class="num-mod trash-btn"><i class="fa fa-trash"></i></button>
+                            <button class="num-mod sub-btn">-</button>
+                            <span class="ticket-number"></span>
+                            <button class="num-mod add-btn">+</button>
+                        </div>
+                    </div>
+                <div class="ticket-info" style="text-align: left;"></div>
+
+
+                <hr class="content-divider" />
             </div>
-        <div class="ticket-info">ticket info</div>
+        </template>
 
+        <div id="cart-container"></div>
 
-        <hr class="content-divider" />
-
-        <div class="ticket-title">
-            Ticket Stuff 2
-            <span class="ticket-price">amount</span>
-
+        <div id="ticketDescriptions" class="desc-container">
+        <div class="desc" id="desc-4day">
+          <strong>INCLUDES:</strong>
+          <ul>
+          <li>Admission to all 4 days of CALGARY EXPO™</li>
+          <li>Show Floor Access</li>
+          <li>Room/Theatre Access </li>
+          <li> Souvenir Badge</li>
+          </ul>
+          <strong>4-DAY PASS BENEFITS:</strong>
+          <ul>
+          <li>Access to the Special Preview on Thursday at 2 PM </li>
+          </ul>
         </div>
 
-        <div class="modify-cart">
-                <div class="ticket-mod">
-                    <button class="num-mod" id="trash"><i class="fa fa-trash"></i></button>
-                    <button class="num-mod" id="sub1">&minus;</button>
-                    <span style="padding-left: 10px;">1</span>
-                    <button class="num-mod" id="add1">+</button>
-                </div>
-            </div>
-        <div class="ticket-info">ticket info</div>
+        <div class="desc" id="desc-ultimate">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to all 4 days of CALGARY EXPO™</li>
+            <li>Show Floor Access</li>
+            <li>Room/Theatre Access </li>
+            <li> Limited Edition CALGARY EXPO™ Ultimate Badge</li>
+          </ul>
+          <strong>ULTIMATE FAN PACKAGE BENEFITS</strong>
+          <ul>
+            <li>Access to the Special Preview on Thursday at 2PM</li>
+            <li>Exclusive Ticket Pick Up Counter</li>
+            <li>Exclusive Ultimate Lounge Access</li>
+            <li>Celebrity Photo Op 24-hour Purchase Guarantee</li>
+            <li>Limited Edition CALGARY EXPO™ Bag</li>
+            <li>Limeted Edition Comic from Major Publisher</li>
+            <li>ThrillJoy Lord of the Rings Blind Box Figure</li>
+            <li>Exclusive Lithograph</li>
+            <li>10% off coupon at the CALGARY EXPO™ Store</li>
+            <li>Your next show is on us! Free single day General Admission (excluding Saturdays) to ALL FUTURE FAN EXPO HQ events until, but not including CALGARY EXPO™ 2027 & VidCon™.</li>
+          </ul>
+        </div>
 
-        <hr class="content-divider" />
+        <div class="desc" id="desc-vip">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to all 4 days of CALGARY EXPO™</li>
+            <li>Show Floor Access</li>
+            <li>Panel Rooms/Theatre Access</li>
+            <li>Limited Edition CALGARY EXPO™ VIP Badge</li>
+          </ul>
+          <strong>VIP PACKAGE BENEFITS</strong>
+          <ul>
+            <li>Access to the Special Preview on Thursday at 2 PM</li>
+            <li>Head Start to the Show Floor at 11:30 AM on Friday, &amp; 9:30 AM on Saturday &amp; Sunday</li>
+            <li>Complimentary Express Shipping of VIP Pass</li>
+            <li>Priority Entrance</li>
+            <li>Exclusive VIP Lounge Access</li>
+            <li>Complimentary Bag &amp; Coat Check in Lounge</li>
+            <li>VIP Virtual Concierge</li>
+            <li>VIP Express Pass for Celebrity Autograph &amp; Photo Op Areas</li>
+            <li>VIP Priority Access to Main Theatre Presentations</li>
+            <li>Limited Edition CALGARY EXPO™ Lanyard</li>
+            <li>Limited Edition CALGARY EXPO™ T-shirt</li>
+            <li>Limited Edition CALGARY EXPO™ Bag</li>
+            <li>Limited Edition Comic from Major Publisher</li>
+            <li>ThrillJoy Lord of the Rings Blind Box Figure</li>
+            <li>ThrillJoy Lord of the Rings Blind Box Figure</li>
+            <li>Exclusive Lithograph</li>
+            <li>Bring a Friend for FREE on Thursday</li>
+            <li>20% off coupon at the CALGARY EXPO™ Store</li>
+            <li>First right to renew VIP Package for CALGARY EXPO™ 2027</li>
+            <li>First right to renew VIP Package for CALGARY EXPO™ 2027</li>
+            <li>Your next show is on us! Unlimited Admission to ALL FUTURE FAN EXPO HQ events until, but not including, CALGARY EXPO™ 2027 &amp; VidCon™.</li>
+          </ul>
+        </div>
 
+        <div class="desc" id="desc-thurs">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 4 PM - 9 PM on Thursday, April 23, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
 
-        
+        <div class="desc" id="desc-fri">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 12 PM - 8 PM on Friday, April 24, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-sat">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 7 PM on Saturday, April 25, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-sun">
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 5 PM on Sunday, April 26, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fthurs">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 4 PM - 9 PM on Thursday, April 23, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-ffri">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 12 PM - 8 PM on Friday, April 24, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fsat">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 7 PM on Saturday, April 25, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-fsun">
+          <p style="margin-bottom: 15px;">Fun for the whole family on a discount! Single day admission for 2 adults (18+) and up to 4 children (6-12)</p>
+          <strong>INCLUDES: </strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 5 PM on Sunday, April 26, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>2 Souvenir Badges</li>
+            <li>4 Child Wristbands</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-ythurs">
+          <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+          <strong>INCLUDES:</strong>
+            <ul>
+              <li>Admission to CALGARY EXPO™ 4 PM - 9 PM on Thursday, April 23, 2026</li>
+              <li>Show Floor Access</li>
+              <li>Panel Room/Theatre Access</li>
+              <li>Souvenir Badge</li>
+            </ul>
+          </div>
+
+          <div class="desc" id="desc-yfri">
+            <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+            <strong>INCLUDES:</strong>
+            <ul>
+              <li>Admission to CALGARY EXPO™ 12 PM - 8 PM on Friday, April 24, 2026</li>
+              <li>Show Floor Access</li>
+              <li>Panel Room/Theatre Access</li>
+              <li>Souvenir Badge</li>
+            </ul>
+          </div>
+
+          <div class="desc" id="desc-ysat">
+            <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+            <strong>INCLUDES:</strong>
+            <ul>
+              <li>Admission to CALGARY EXPO™ 10 AM - 7 PM on Saturday, April 25, 2026</li>
+              <li>Show Floor Access</li>
+              <li>Panel Room/Theatre Access</li>
+              <li>Souvenir Badge</li>
+            </ul>
+        </div>
+
+        <div class="desc" id="desc-ysun">
+          <p style="margin-bottom: 15px;">Single day admission for youth ages 13-17.</p>
+          <strong>INCLUDES:</strong>
+          <ul>
+            <li>Admission to CALGARY EXPO™ 10 AM - 5 PM on Sunday, April 26, 2026</li>
+            <li>Show Floor Access</li>
+            <li>Panel Room/Theatre Access</li>
+            <li>Souvenir Badge</li>
+          </ul>
+        </div>
+
+        <div class="desc" id="desc-cpass">
+          <p>
+            If you buy a Child Pass (ages 6-12), they'll receive the same show access as your Adult Pass!*
+            <br>
+            <br>
+            Children 12 and under must be accompanied by an adult at all times. Child admission pass holders will receive a child wristband.
+            <br>
+            <br>
+            *Excludes specially ticketed experiences &amp; merchandise.
+          </p>
+        </div>
+
+      </div>
 
 
     </main>
     <hr class="content-divider" />
     <div class="subtotal">
         Subtotal
-        <span>amount</span>
+        <span class="subtotal-amount"></span>
     </div>
 
     <hr class="content-divider" />
@@ -76,6 +280,8 @@
         <button class="checkout-btn red" id="buyNow">Buy Now</button>
     </nav>
     </form>
+
+    <script src="ticket_cart.js"></script>
 
 </body>
 </html>

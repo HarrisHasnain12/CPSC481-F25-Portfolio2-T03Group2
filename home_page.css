@@ -15,8 +15,8 @@ body {
 
 /* Phone-sized app container */
 .phone {
-  width: 390px;              /* iPhone-width style */
-  height: 844px;             /* ✅ fixed “screen” height */
+  width: 390px;            
+  height: 844px;           
   background: #ffffff;
   border-radius: 36px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -248,4 +248,137 @@ body {
 .center-search-header {
   border-bottom: none;
   box-shadow: none;
+}
+
+/*More page layout*/
+.more-body {
+  background: #ffffff;
+}
+
+.more-container {
+  max-width: 340px;
+  margin: 0 auto;
+  padding-bottom: 80px;   
+  text-align: center;
+}
+
+.more-link {
+  display: block;
+  max-width: 280px;
+  margin: 10px auto;
+  padding: 10px 10px;
+  font-size: 18px;
+}
+
+/* Contact section */
+.contact-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.contact-heading {
+  text-align: center;
+  color: #c62828;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+.contact-item {
+  margin-bottom: 16px;
+}
+
+.contact-label {
+  color: #c62828;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 15px;
+}
+
+/*About Us*/
+
+.info-body {
+  background: #ffffff;
+}
+
+.info-container {
+  max-width: 340px;           
+  margin: 0 auto;     
+  text-align: left;
+}
+
+.info-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 22px;
+  margin-bottom: 16px;
+  text-decoration: underline;
+}
+
+.info-intro {
+  text-align: center;        
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.info-section {
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f6efec; 
+}
+
+.info-subheading {
+  color: #c62828;
+  font-weight: 700;
+  font-size: 18px;  
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+/*FAQ page layout*/
+
+.faq-body {
+  background: #ffffff;
+}
+
+.faq-container {
+  max-width: 340px;         
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 24px;
+  margin-bottom: 22px;
+  text-decoration: underline;
+}
+
+.faq-item {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f6efec; 
+}
+
+.faq-question {
+  color: #c62828;              
+  font-weight: 700;
+  font-size: 18px;            
+  margin: 0 0 6px;
+}
+
+.faq-answer {
+  margin: 0;
+  line-height: 1.2;
 }

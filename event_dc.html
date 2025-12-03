@@ -77,10 +77,34 @@
       margin-bottom: 24px;
     }
 
-    /* Optional: tweak button spacing within detail page */
+    /* Button layout & styling within detail page */
     .event-actions {
       margin-top: 8px;
       text-align: center;
+
+      /* NEW: put both buttons on the same row and center them */
+      display: flex;
+      justify-content: space-evenly;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .event-actions .main-btn {
+      width: 350px;
+      height: 50px;
+      padding: 10px 6px;
+      font-size: 17px;
+    }
+
+    /* NEW: colour variants for Add/Remove My Expo button */
+    .main-btn.expo-add {
+      background-color: #2e7d32 !important; /* green */
+      font-size: 17px;
+    }
+
+    .main-btn.expo-remove {
+      background-color: #c62828 !important; /* red */
+      font-size: 13px;
     }
   </style>
 </head>
@@ -128,15 +152,23 @@
 
         <p class="event-description" id="event-description"></p>
 
-        <!-- New "View on Map" button (styled like secondary home buttons) -->
+        <!-- Buttons row: View on Map + Add/Remove My Expo -->
         <div class="event-actions">
           <a
             href="convention_map.html"
             class="main-btn secondary"
+            style="background-color: #4fc3f7; padding-top: 15px; text-align: center;"
             id="view-on-map-btn"
+          >View on Map</a>
+
+          <!-- NEW: Add/Remove My Expo toggle button -->
+          <button
+            type="button"
+            class="main-btn secondary"
+            id="expo-toggle-btn"
           >
-            View on Map
-          </a>
+            <!-- Text is set by JS -->
+          </button>
         </div>
       </section>
     </main>
@@ -258,7 +290,7 @@
             ev.view_on_map = false;
           });
 
-          // 3. Set view_on_map = true
+          // 3. Set view_on_map = true for this event (index 0)
           if (panelsData.events.length > 0) {
             panelsData.events[1].view_on_map = true;
           } else {
@@ -281,6 +313,46 @@
 
           // 5. Navigate to convention_map.html
           window.location.href = "convention_map.html";
+        });
+      }
+
+      // ----- NEW: Add / Remove from My Expo button behaviour -----
+      const expoToggleBtn = document.getElementById("expo-toggle-btn");
+
+      if (expoToggleBtn) {
+        // Initialize button appearance based on added_to_my_expo
+        function refreshExpoButton() {
+          if (event.added_to_my_expo) {
+            expoToggleBtn.textContent = "Remove from My Expo";
+            expoToggleBtn.classList.remove("expo-add");
+            expoToggleBtn.classList.add("expo-remove");
+          } else {
+            expoToggleBtn.textContent = "Add to My Expo";
+            expoToggleBtn.classList.remove("expo-remove");
+            expoToggleBtn.classList.add("expo-add");
+          }
+        }
+
+        // Initial state when page loads
+        refreshExpoButton();
+
+        expoToggleBtn.addEventListener("click", () => {
+          // Toggle the flag for this event
+          event.added_to_my_expo = !event.added_to_my_expo;
+
+          // Save back to localStorage
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(conventionPanels));
+          } catch (err) {
+            console.error(
+              "Failed to save updated convention_panels with added_to_my_expo:",
+              err
+            );
+            return;
+          }
+
+          // Update button look/text
+          refreshExpoButton();
         });
       }
     });

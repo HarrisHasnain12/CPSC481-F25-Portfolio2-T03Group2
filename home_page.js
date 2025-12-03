@@ -47,23 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("home page loaded");
   ensureConventionPanels(); // run the logic when the home page loads
 
-    // DELETE button logic
-    const deleteBtn = document.getElementById("delete-panels-btn");
-    if (deleteBtn) {
-      deleteBtn.addEventListener("click", async () => {
-        // 1. Clear existing data
-        localStorage.removeItem(STORAGE_KEY);
-        console.log("⚠️ Deleted convention_panels from localStorage");
+  // DELETE button logic
+  const deleteBtn = document.getElementById("delete-panels-btn");
+  if (deleteBtn) {
+    deleteBtn.addEventListener("click", async () => {
+      // Ask user to confirm in a native dialog (same style window as alert)
+      const shouldDelete = window.confirm(
+        "Are you sure you want to reset the convention panel data to its defaults?\n\n" +
+        "(this is meant to be a secret for developers during testing, hopefully nobody actually finds this haha)"
+      );
 
-        // 2. Reload default data from panels.json and save to localStorage
-        const data = await loadPanelsFromFile();
+      if (!shouldDelete) {
+        console.log("User chose NOT to delete convention_panels.");
+        alert("Convention panel data was not deleted.");
+        return; // do nothing else
+      }
 
-        if (data) {
-          alert("Cleared and reset convention panel data to defaults!");
-        } else {
-          alert("Cleared convention panel data, but failed to reload defaults. Check console for errors.");
-        }
-      });
-    }
+      // User confirmed: proceed with delete + reset (same behaviour as before)
+      localStorage.removeItem(STORAGE_KEY);
+      console.log("⚠️ Deleted convention_panels from localStorage");
 
+      const data = await loadPanelsFromFile();
+
+      if (data) {
+        alert("Reset convention panel data to defaults!");
+      } else {
+        alert("Cleared convention panel data, but failed to reload defaults. Check console for errors.");
+      }
+    });
+  }
 });

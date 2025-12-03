@@ -364,15 +364,18 @@ body {
       justify-content: center;
       column-gap: 15px;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       margin-top: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
     }
 
     .checkout-btn {
       border-radius: 12px;
       border: 2px solid #ccc;
       background-color: #fff;
-      padding: 10px 55px 10px 55px;
+      padding: 10px 20px 10px 20px;
+      width: 150px;
       cursor: pointer;
       font-size: 16px;
       font-weight: lighter;

@@ -46,30 +46,30 @@
       <div class="dropdown">
         <div id="dropdownMenu" class="dropdown-content hide">
           <div class="dropdown-title">Multi-Day</div>
-          <a href="#" data-ticket="4day">4-Day</a>
-          <a href="#" data-ticket="ultimate">Ultimate</a>
-          <a href="#" data-ticket="vip">VIP</a>
+          <a href="#" data-ticket="4day" data-price="109">4-Day</a>
+          <a href="#" data-ticket="ultimate" data-price="149">Ultimate</a>
+          <a href="#" data-ticket="vip" data-price="499">VIP</a>
 
           <div class="dropdown-title">Single Day</div>
-          <a href="#" data-ticket="thurs" data-display="Single Day: Thursday">Thursday</a>
-          <a href="#" data-ticket="fri" data-display="Single Day: Friday">Friday</a>
-          <a href="#" data-ticket="sat" data-display="Single Day: Saturday">Saturday</a>
-          <a href="#" data-ticket="sun" data-display="Single Day: Sunday">Sunday</a>
+          <a href="#" data-ticket="thurs" data-display="Single Day: Thursday" data-price="25">Thursday</a>
+          <a href="#" data-ticket="fri" data-display="Single Day: Friday" data-price="40">Friday</a>
+          <a href="#" data-ticket="sat" data-display="Single Day: Saturday" data-price="55">Saturday</a>
+          <a href="#" data-ticket="sun" data-display="Single Day: Sunday" data-price="45">Sunday</a>
 
           <div class="dropdown-title">Family Passes</div>
-          <a href="#" data-ticket="fthurs" data-display="Family Pass: Thursday">Thursday</a>
-          <a href="#" data-ticket="ffri" data-display="Family Pass: Friday">Friday</a>
-          <a href="#" data-ticket="fsat" data-display="Family Pass: Saturday">Saturday</a>
-          <a href="#" data-ticket="fsun" data-display="Family Pass: Sunday">Sunday</a>
+          <a href="#" data-ticket="fthurs" data-display="Family Pass: Thursday" data-price="55">Thursday</a>
+          <a href="#" data-ticket="ffri" data-display="Family Pass: Friday" data-price="85">Friday</a>
+          <a href="#" data-ticket="fsat" data-display="Family Pass: Saturday" data-price="120">Saturday</a>
+          <a href="#" data-ticket="fsun" data-display="Family Pass: Sunday" data-price="95">Sunday</a>
 
           <div class="dropdown-title">Youth Single Day</div>
-          <a href="#" data-ticket="ythurs" data-display="Youth Pass: Thursday">Thursday</a>
-          <a href="#" data-ticket="yfri" data-display="Youth Pass: Friday">Friday</a>
-          <a href="#" data-ticket="ysat" data-display="Youth Pass: Saturday">Saturday</a>
-          <a href="#" data-ticket="ysun" data-display="Youth Pass: Sunday">Sunday</a>
+          <a href="#" data-ticket="ythurs" data-display="Youth Pass: Thursday" data-price="20">Thursday</a>
+          <a href="#" data-ticket="yfri" data-display="Youth Pass: Friday" data-price="30">Friday</a>
+          <a href="#" data-ticket="ysat" data-display="Youth Pass: Saturday" data-price="45">Saturday</a>
+          <a href="#" data-ticket="ysun" data-display="Youth Pass: Sunday" data-price="35">Sunday</a>
 
           <div class="dropdown-title">Child Passes</div>
-          <a href="#" data-ticket="cpass" data-display="Child Pass">Child Pass</a>
+          <a href="#" data-ticket="cpass" data-display="Child Pass" data-price="12">Child Pass</a>
 
         </div>
       </div>
@@ -298,10 +298,10 @@
       <h2 style="font-size: 24px; color: black; font-weight: bold; padding-top: 16px;" id="ticketHeader">April</h2>
 
       <div class="day-buttons">
-        <button class="ticket-btn" data-ticket="thurs">23</button>
-        <button class="ticket-btn" data-ticket="fri">24</button>
-        <button class="ticket-btn" data-ticket="sat">25</button>
-        <button class="ticket-btn" data-ticket="sun">26</button>
+        <button class="ticket-btn" data-ticket="thurs" data-display="Single Day: Thursday" data-price="25">23</button>
+        <button class="ticket-btn" data-ticket="fri" data-display="Single Day: Friday" data-price="40">24</button>
+        <button class="ticket-btn" data-ticket="sat" data-display="Single Day: Saturday" data-price="55">25</button>
+        <button class="ticket-btn" data-ticket="sun" data-display="Single Day: Sunday" data-price="45">26</button>
       </div>
 
       
@@ -311,10 +311,10 @@
     <hr class="content-divider" />
 
     <div class="cost">
-      <span>amount</span>
+      <p>$<span id="ticketPrice">0</span></p>
       <div class="num-mod">
-        <span>1</span>
         <button class="num-mod" id="sub1">&minus;</button>
+        <span id="ticketCount">1</span>
         <button class="num-mod" id="add1">+</button>
       </div>
     </div>
@@ -323,8 +323,8 @@
 
 
     <nav class="checkout">
-        <button class="checkout-btn" id="addCart">Add to Cart</button>
-        <button class="checkout-btn" id="buyNow" href="ticket_checkout.html">Buy Now</button>
+        <button onclick="addToCart()" class="checkout-btn" id="addCart">Add to Cart</button>
+        <button onclick="addToCart()" class="checkout-btn" id="buyNow" href="ticket_checkout.html">Buy Now</button>
     </nav>
 
     <script src="ticket_purchase.js"></script>

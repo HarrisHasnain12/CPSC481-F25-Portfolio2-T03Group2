@@ -5,7 +5,7 @@
   text-decoration: none;
   font-style: italic;
   border-top: 2px dashed black;
-  padding-top: 15px;
+  padding-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -19,14 +19,16 @@
 
 /* Event row box */
 .event-item {
-  border: 3px solid black;      /* black border around each event */
-  border-radius: 10px;
-  height: 120px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding: 8px;
-  background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 14px;
+      border: 3px solid black;      /* black border around each event */
+      border-radius: 10px;
+      height: fit-content;
+      width: 100%;
+      padding: 8px;
+      background: #ffffff;
+      margin-bottom: 20px;
 }
 
 /* LEFT: thumbnail image + property tag (mini version of event-hero) */
@@ -38,7 +40,8 @@
 }
 
 .event-thumb {
-  width: 80px;
+  width: 120px;
+  height: fit-content;
   border-radius: 12px;
   overflow: hidden;
   background: #000000;
@@ -57,7 +60,7 @@
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
-  background: #4fc3f7;
+  background: tan;
   color: white;
 }
 
@@ -67,8 +70,8 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  font-size: 12px;
+  justify-content: space-evenly;
+  font-size: 21px;
 }
 
 .event-name {
@@ -77,13 +80,13 @@
 }
 
 .event-time {
-  font-size: 11px;
+  font-size: 14px;
   color: #555;
   margin-bottom: 3px;
 }
 
 .event-panel {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 /* RIGHT: buttons */

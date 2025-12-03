@@ -7,8 +7,41 @@
 
   <!-- Reuse base styling -->
   <link rel="stylesheet" href="home_page.css" />
-
   <link rel="stylesheet" href="browse_events.css" />
+  
+  <style>
+    /* --- UPDATED BUTTON LAYOUT (STACKED VERTICAL) --- */
+
+    /* Left + center row remains unchanged */
+    .event-top-row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    /* BUTTONS NOW STACKED VERTICALLY */
+    .event-bottom-buttons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;          /* vertical stack */
+      align-items: center;             /* center buttons */
+      justify-content: center;
+      margin-top: 20px;
+      gap: 8px;                        /* space between buttons */
+      border-top: 1px solid gray;
+      padding-top: 10px;
+    }
+
+    .event-bottom-buttons .event-btn {
+      width: 80%;                      /* makes button centered + cleaner */
+      font-size: 18px;
+      padding: 8px 14px;
+      text-align: center;
+      margin-top: 10px;
+      height: 50px;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -23,35 +56,34 @@
       <a class="main-btn primary"
         href="my_expo.html"
         style="width: 240px; margin-top: 20px; font-size: 24px;">
-          View My Expo
+          View <i>My Expo</i>
       </a>
     </header>
 
     <!-- BODY -->
-  <main class="home-body" style="text-align: center;">
+    <main class="home-body" style="text-align: center;">
 
-    <div class="date-header" style="border-top: none; padding-top: 0px;">
-      April 23rd
-    </div>
-    <div class="events-day" data-events-date="April 23rd"></div>
+      <div class="date-header" style="border-top: none; padding-top: 0px;">
+        April 23rd
+      </div>
+      <div class="events-day" data-events-date="April 23rd"></div>
 
-    <div class="date-header">
-      April 24th
-    </div>
-    <div class="events-day" data-events-date="April 24th"></div>
+      <div class="date-header">
+        April 24th
+      </div>
+      <div class="events-day" data-events-date="April 24th"></div>
 
-    <div class="date-header">
-      April 25th
-    </div>
-    <div class="events-day" data-events-date="April 25th"></div>
+      <div class="date-header">
+        April 25th
+      </div>
+      <div class="events-day" data-events-date="April 25th"></div>
 
-    <div class="date-header">
-      April 26th
-    </div>
-    <div class="events-day" data-events-date="April 26th"></div>
+      <div class="date-header">
+        April 26th
+      </div>
+      <div class="events-day" data-events-date="April 26th"></div>
 
-  </main>
-
+    </main>
 
     <!-- NAV BAR -->
     <nav class="tab-bar">
@@ -78,7 +110,8 @@
     </nav>
 
   </div>
-    <script>
+
+  <script>
     const STORAGE_KEY = "convention_panels";
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -105,11 +138,9 @@
 
       const events = conventionPanels.events;
 
-      // Map date string (e.g. "April 23rd") to its container
       const dateSections = {};
       document.querySelectorAll(".events-day[data-events-date]").forEach((container) => {
-        const date = container.getAttribute("data-events-date");
-        dateSections[date] = container;
+        dateSections[container.getAttribute("data-events-date")] = container;
       });
 
       events.forEach((event) => {
@@ -119,11 +150,14 @@
           return;
         }
 
-        // --- Create event row ---
         const item = document.createElement("div");
         item.className = "event-item";
 
-        // LEFT: image + property tag (similar style to event_marvel hero)
+        /* --- NEW WRAPPER FOR LEFT + CENTER --- */
+        const topRow = document.createElement("div");
+        topRow.className = "event-top-row";
+
+        /* LEFT SIDE */
         const left = document.createElement("div");
         left.className = "event-left";
 
@@ -132,7 +166,7 @@
 
         const img = document.createElement("img");
         img.src = event.image;
-        img.alt = event.name || "event image";
+        img.alt = event.name;
 
         const tag = document.createElement("div");
         tag.className = "event-tag-small";
@@ -142,17 +176,17 @@
         thumb.appendChild(tag);
         left.appendChild(thumb);
 
-        // CENTER: name, date, times, panel
+        /* CENTER */
         const center = document.createElement("div");
         center.className = "event-center";
 
         const nameEl = document.createElement("div");
         nameEl.className = "event-name";
-        nameEl.textContent = event.name || "";
+        nameEl.textContent = event.name;
 
         const timeEl = document.createElement("div");
         timeEl.className = "event-time";
-        timeEl.textContent = `${event.date} • ${event.start_time} – ${event.end_time}`;
+        timeEl.textContent = `${event.start_time} – ${event.end_time}`;
 
         const panelEl = document.createElement("div");
         panelEl.className = "event-panel";
@@ -162,23 +196,17 @@
         center.appendChild(timeEl);
         center.appendChild(panelEl);
 
-        // RIGHT: buttons
-        const right = document.createElement("div");
-        right.className = "event-right";
+        /* --- BOTTOM BUTTONS: NOW STACKED VERTICALLY --- */
+        const bottomButtons = document.createElement("div");
+        bottomButtons.className = "event-bottom-buttons";
 
-        // View Details button
         const detailsBtn = document.createElement("button");
         detailsBtn.className = "event-btn view-details-btn";
         detailsBtn.textContent = "View Details";
         detailsBtn.addEventListener("click", () => {
-          if (event.event_detail_page) {
-            window.location.href = event.event_detail_page;
-          } else {
-            console.error("No event_detail_page specified for event:", event);
-          }
+          window.location.href = event.event_detail_page;
         });
 
-        // Add / Remove My Expo button
         const expoBtn = document.createElement("button");
         expoBtn.className = "event-btn expo-toggle-btn";
 
@@ -195,39 +223,27 @@
         }
 
         expoBtn.addEventListener("click", () => {
-          // Toggle flag in the in-memory event object
           event.added_to_my_expo = !event.added_to_my_expo;
           updateExpoButton();
-
-          // Save updated data back to localStorage
-          try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(conventionPanels));
-            console.log(
-              "Updated added_to_my_expo for event id",
-              event.id,
-              "->",
-              event.added_to_my_expo
-            );
-          } catch (err) {
-            console.error("Failed to save updated convention_panels:", err);
-          }
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(conventionPanels));
         });
 
-        // Initialize button text/colors
         updateExpoButton();
 
-        right.appendChild(detailsBtn);
-        right.appendChild(expoBtn);
+        bottomButtons.appendChild(detailsBtn);
+        bottomButtons.appendChild(expoBtn);
 
-        // Assemble row
-        item.appendChild(left);
-        item.appendChild(center);
-        item.appendChild(right);
+        /* Assemble event block */
+        topRow.appendChild(left);
+        topRow.appendChild(center);
+
+        item.appendChild(topRow);
+        item.appendChild(bottomButtons);
 
         container.appendChild(item);
       });
     });
-    </script>
+  </script>
 
 </body>
 </html>

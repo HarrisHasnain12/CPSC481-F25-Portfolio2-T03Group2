@@ -121,10 +121,18 @@ dayButtons.forEach(button => {
         const ticket = button.getAttribute('data-ticket');
         price = button.getAttribute('data-price');
         const toShow = document.getElementById(`desc-${ticket}`);
-
-        if (toShow) toShow.style.display = 'block';
-
         const label = button.getAttribute("data-display");
+
+        if (toShow){ 
+            toShow.style.display = 'block'
+            selectedTicket = {
+            id: ticket,
+            price: price,
+            descriptionID: "desc-" + ticket,
+            name: label
+        };
+        };
+
         header.innerText = `${label}`;
         updateDisplay();
     });

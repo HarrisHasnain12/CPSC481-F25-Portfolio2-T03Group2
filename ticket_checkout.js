@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("checkout").addEventListener("click", () => {
     document.getElementById("waitPls").style.display = "flex";
+    setCookie("shippingCost", shippingCost);
     setTimeout(()=>{window.location = "ticket_complete.html"}, Math.floor(Math.random() * 3000) +2000);
 });
 
@@ -210,9 +211,10 @@ function renderCheckout() {
   
   document.getElementById("sub-amount").textContent = `$${subtotal}`;
   const taxes = subtotal * 0.05;
-  document.getElementById("sub-tax").textContent = `$${taxes}`;
+  document.getElementById("sub-tax").textContent = `$${taxes.toFixed(2)}`;
   document.getElementById("sub-ship").textContent = `$${shippingCost}`;
-  document.getElementById("total-amount").textContent = `$${subtotal + taxes + shippingCost}`;
+  let truTotal = subtotal + taxes + shippingCost;
+  document.getElementById("total-amount").textContent = `$${truTotal.toFixed(2)}`;
 }
 
 

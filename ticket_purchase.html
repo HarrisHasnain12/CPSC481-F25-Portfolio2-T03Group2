@@ -324,7 +324,9 @@
 
     <nav class="checkout">
         <button onclick="addToCart()" class="checkout-btn" id="addCart">Add to Cart</button>
-        <button onclick="addToCart()" class="checkout-btn" id="buyNow" href="ticket_checkout.html">Buy Now</button>
+        <form action="ticket_checkout.html" id="checkout-container">
+          <button onclick="addToCart()" class="checkout-btn" id="buyNow">Buy Now</button>
+        </form>
     </nav>
 
     <script src="ticket_purchase.js"></script>

@@ -7,6 +7,7 @@
 
   <!-- Reuse base styling -->
   <link rel="stylesheet" href="ticket_purchase.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
@@ -14,48 +15,57 @@
 
     <!-- HEADER -->
     <header class="home-header detail-header">
+      <div class="top-bar"><span style="font-size: 1.5em;">Purchase Complete</span></div>
     </header>
 
     <!-- BODY -->
     <main class="home-body" style="text-align: center;">
 
         <div>
+            <p class="green-check"><i class="fa-regular fa-circle-check"></i></p>
             <p style="font-size: 40px;">Thank you!</p>
             <p style="margin-bottom: 10px; margin-top: 5px;">You will receive a confirmation email shortly.</p>
         </div>
 
-        <div class="tickets-final">
-            <hr class="content-divider" />
+        <div id="empty-cart-message">Seriously, how did you get here?</div>
 
-            <div>ticket 1</div>
+        <hr class="content-divider" style="margin-top: 5px;"/>
 
-            <hr class="content-divider" />
+        <template id="checkout-template">
+            <div class="checkout-item" data-ticket-id="" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
+            <div class="checkout-title"></div>
+                <span class="ticket-number"></span>
+                <span class="ticket-price"></span>
+                </div>
+                </div>
+            
 
-            <div>ticket 2</div>
+            <hr class="content-divider" style="margin-top: 5px;"/>
+            
+        </template>
 
-            <hr class="content-divider" />
+        <div id="checkout-container"></div>
 
-        </div>
 
     <div class="subtotal-container">
     <div class="subtotal">
         Subtotal
-        <span>amount</span>
+        <span id="sub-amount"></span>
     </div>
     <div class="subtotal" id="tax">
         Tax
-        <span>amount</span>
+        <span id="sub-tax"></span>
     </div>
-    <div class="subtotal" id="shipping" style="padding-bottom: 5px;">
+    <div class="subtotal" id="shipping" style="display: none;">
         Shipping
-        <span>amount</span>
+        <span id="sub-ship"></span>
     </div>
 
     <hr class="content-divider" />
 
-    <div class="subtotal" id="total" style="padding-top: 5px;">
+    <div class="subtotal" id="total"">
         Total
-        <span>amount</span>
+        <span id="total-amount"></span>
     </div>
   </div>
 
@@ -67,6 +77,8 @@
         <button class="checkout-btn red" style="font-weight: normal;" id="backHome">← Home</button>
     </nav>
     </form>
+
+    <script src="ticket_complete.js"></script>
 
 </body>
 </html>

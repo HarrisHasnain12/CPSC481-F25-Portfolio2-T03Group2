@@ -730,3 +730,8 @@ body {
     .tickets-final {
       
     }
+
+    .green-check {
+      font-size: 250px;
+      color: green;
+    }

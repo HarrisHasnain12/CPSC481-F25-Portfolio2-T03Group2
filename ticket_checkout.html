@@ -7,10 +7,13 @@
 
   <!-- Reuse base styling -->
   <link rel="stylesheet" href="ticket_purchase.css" />
+  <!-- Delete icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
 </head>
 
 <body>
   <div class="phone">
+    <div class="wait-message" id="waitPls">Please wait while your order is processed</div>
 
     <header class="home-header detail-header">
       <a id="back-button" class="back-button" aria-label="Go back" href="ticket_purchase.html" style="text-decoration: none;">←</a>
@@ -24,35 +27,33 @@
     </header>
 
     <main class="home-body" style="text-align: center;">
-        <div class="checkout-title">
-            Ticket Stuff 2
-            <div class="modify-cart">
-                <div class="checkout-mod">
-                    <button class="chek-mod" id="chekTrash"><i class="fa fa-trash"></i></button>
-                    <button class="chek-mod" id="sub1">&minus;</button>
-                    <button class="chek-mod" id="add1">+</button>
-                    <span style="padding-left: 10px;">1</span>
-                </div>
-            </div>
-            <span class="ticket-price">$100</span>
-        </div>
 
         <hr class="content-divider" />
 
-        <div class="checkout-title">
-            Ticket Stuff 2
-            <div class="modify-cart">
-                <div class="checkout-mod">
-                    <button class="chek-mod" id="chekTrash"><i class="fa fa-trash"></i></button>
-                    <button class="chek-mod" id="sub1">&minus;</button>
-                    <span style="padding-left: 10px;">1</span>
-                    <button class="chek-mod" id="add1">+</button>
+        <div id="empty-cart-message">How did you even get here?</div>
+
+        <template id="checkout-template">
+            <div class="checkout-item" data-ticket-id="" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
+            <div class="checkout-title"></div>
+                <div class="modify-cart">
+                    <div class="checkout-mod">
+                        <button class="chek-mod trash-chek" style="margin-right: 30px;"><i class="fa-solid fa-trash-can"></i></button>
+                        <button class="chek-mod sub-btn">&minus;</button>
+                        <span class="ticket-number""></span>
+                        <button class="chek-mod add-btn">+</button>
+                    
+                <span class="ticket-price"></span>
+                </div>
                 </div>
             </div>
-            <span class="ticket-price">$100</span>
-        </div>
+            </div>
 
-        <hr class="content-divider" />
+            <hr class="content-divider" style="margin-top: 5px;"/>
+            
+        </template>
+
+        <div id="checkout-container" style="display: flex; flex-direction: column;"></div>
+
 
 
         <div class="checkbox-wrapper">
@@ -65,26 +66,26 @@
 
 
         <div class="hide" id="shippingFields">
-            <input class="shipBox" type="text" id="shipName" placeholder="First and Last Name">
-            <input class="shipBox" type="text" id="shipEmail" placeholder="Email Address">
-            <input class="shipBox" type="text" id="shipAddy" placeholder="Street Address">
-            <input class="shipBox" type="text" id="shipCity" placeholder="City">
-            <input class="shipBox" type="text" id="shipZip" placeholder="Postal Code">
-            <button class="save" id="saveShipping">Save</button>
+            <input class="shipBox required-field-ship" type="text" id="shipName" placeholder="First and Last Name">
+            <input class="shipBox required-field-ship" type="text" id="shipEmail" placeholder="Email Address">
+            <input class="shipBox required-field-ship" type="text" id="shipAddy" placeholder="Street Address">
+            <input class="shipBox required-field-ship" type="text" id="shipCity" placeholder="City">
+            <input class="shipBox required-field-ship" type="text" id="shipZip" placeholder="Postal Code">
+            <button class="save" id="saveShipping" disabled>Save</button>
         </div>
 
         
         <div class="ship-container" id="shippingInfo">
         <div id="shippingSaved"></div>
-        <button class="edit">Edit</button>
+        <button class="edit" id="edit-btn">Edit</button>
         </div>
         
         <div class="hide" id="payfield">
-            <input class="credBox" type="text" id="cardName" placeholder="Cardholder Name">
-            <input class="credBox" type="text" id="cardNum" placeholder="Card Number">
+            <input class="credBox required-field" type="text" id="cardName" placeholder="Cardholder Name">
+            <input class="credBox required-field" type="text" id="cardNum" placeholder="Card Number">
             <div class="expire">
-            <input class="credBox" type="text" id="cardExp" placeholder="Expiration Date">
-            <input class="credBox" type="text" id="cardCCV" placeholder="CCV">
+            <input class="credBox required-field" type="text" id="cardExp" placeholder="Expiration Date">
+            <input class="credBox required-field" type="text" id="cardCCV" placeholder="CCV">
             </div>
         </div>
 
@@ -92,27 +93,27 @@
 
     </main>
 
-    <hr class="content-divider" />
+    <hr class="content-divider" style="margin-left: 10px; margin-right: 10px;"/>
 
     <div class="subtotal-container">
-    <div class="subtotal">
-        Subtotal
-        <span>amount</span>
-    </div>
-    <div class="subtotal" id="tax">
-        Tax
-        <span>amount</span>
-    </div>
-    <div class="subtotal" id="shipping" style="padding-bottom: 5px;">
-        Shipping
-        <span>amount</span>
-    </div>
+        <div class="subtotal">
+            Subtotal
+            <span id="sub-amount"></span>
+        </div>
+        <div class="subtotal" id="tax">
+            Tax
+            <span id="sub-tax"></span>
+        </div>
+        <div class="subtotal" id="shipping" style="padding-bottom: 10px; display: none;">
+            Shipping
+            <span id="sub-ship"></span>
+        </div>
 
     <hr class="content-divider" />
 
     <div class="subtotal" id="total" style="padding-top: 5px;">
         Total
-        <span>amount</span>
+        <span id="total-amount"></span>
     </div>
   </div>
 

@@ -64,7 +64,7 @@ body {
 }
 
 .home-body {
-  padding: 24px 20px 0px;
+  padding: 15px 10px 0px;
   text-align: center;
   flex: 1;
   overflow-y: auto;   /* ✅ content scrolls, nav stays put */
@@ -480,36 +480,43 @@ body {
       font-weight: bold;
       text-align: left;
       justify-content: space-between;
-      padding-top: 5px;
     }
 
     .checkout-mod {
       font-size: 12px;
-      padding-bottom: 3px;
     }
 
     .chek-mod {
       font-size: 12px;
       padding-left: 6px;
       padding-right: 6px;
-      padding-bottom: 3px;
+      width: 30px;
       font-weight: bold;
       cursor: pointer;
+      border: 1px solid;
+      border-radius: 12px;
+      border-color: #959595;
     }
 
-    #chekTrash {
+    .trash-chek {
       border-radius: 50%;
       text-align: center;
       padding: 0;
       width: 20px;
       height: 20px;
-      border: 2px solid #ccc;
+      border: 1px solid #ccc;
       background-color: #fff;
       color: red;
       cursor: pointer;
       font-size: 12px;
       font-weight: bold;
+      margin-right: 30px;
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .trash-chek:hover {
+  background-color: #ffe5e5;
+  border-color: red;
     }
 
     .payment {
@@ -697,6 +704,26 @@ body {
       background-color: #2196f3;
       color: #fff;
       border-color: #2196f3;
+    }
+
+    .required-field.invalid {
+      border: 2px solid red;
+    }
+
+    .wait-message {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: absolute;
+      border-radius: 26px;
+      height: 824px;
+      width: 370px;
+      z-index: 1001;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
     }
 
     /*ticket_complete specific styling*/

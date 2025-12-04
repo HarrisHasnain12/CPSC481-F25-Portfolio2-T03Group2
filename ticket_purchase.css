@@ -397,9 +397,13 @@ body {
       font-size: 16px;
       padding-left: 10px;
       padding-right: 10px;
-      padding-bottom: 3px;
+      padding-bottom: 1px;
+      width: 30px;
       font-weight: bold;
       cursor: pointer;
+      border: 1px solid;
+      border-radius: 12px;
+      border-color: #959595;
     }
 
     .red {
@@ -412,10 +416,11 @@ body {
       flex-direction: row;
       justify-content: space-between;
       align-content: space-between;
+      padding:10px;
     }
 
     .subtotal-container {
-      padding: 5px 10px 15px 10px;
+      padding: 5px 10px 5px 10px;
     }
 
     .ticket-title {
@@ -437,13 +442,13 @@ body {
       text-align: right;
     }
 
-    #trash {
+    .trash-btn {
       border-radius: 50%;
       text-align: center;
       padding: 0;
       width: 25px;
       height: 25px;
-      border: 2px solid #ccc;
+      border: 1px solid #ccc;
       background-color: #fff;
       color: red;
       cursor: pointer;
@@ -452,7 +457,7 @@ body {
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
     }
 
-    #trash:hover {
+    .trash-btn:hover {
   background-color: #ffe5e5;
   border-color: red;
     }

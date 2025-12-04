@@ -24,7 +24,7 @@
     <main class="home-body" style="text-align: center;">
 
         <template id="cart-item-template">
-            <div class="cart-item">
+            <div class="cart-item" data-ticket-id="">
                 <div class="ticket-title">
                     <span class="true-title"></span>
                     <span class="ticket-price"></span>
@@ -32,7 +32,7 @@
                 
                     <div class="modify-cart">
                         <div class="ticket-mod">
-                            <button class="num-mod trash-btn"><i class="fa fa-trash"></i></button>
+                            <button class="num-mod trash-btn" style="margin-right: 30px; "><i class="fa fa-trash"></i></button>
                             <button class="num-mod sub-btn">-</button>
                             <span class="ticket-number"></span>
                             <button class="num-mod add-btn">+</button>
@@ -265,17 +265,20 @@
 
       </div>
 
+      <div id="empty-cart-message" style="display: none;">Your cart is empty</div>
 
     </main>
-    <hr class="content-divider" />
-    <div class="subtotal">
-        Subtotal
-        <span class="subtotal-amount"></span>
+    <div class="subtotal-container">
+        <hr class="content-divider" />
+        <div class="subtotal">
+            Subtotal
+            <span class="subtotal-amount"></span>
+        </div>
+
+        <hr class="content-divider" />
     </div>
 
-    <hr class="content-divider" />
-
-    <form action="ticket_checkout.html">
+    <form action="ticket_checkout.html" id="checkout-container">
     <nav class="checkout">
         <button class="checkout-btn red" id="buyNow">Buy Now</button>
     </nav>

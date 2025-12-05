@@ -219,8 +219,37 @@ function updateCartBadge() {
 }
 
 document.getElementById("back-button").addEventListener("click", () => {
+
+    let cartCookie = getCookie("tickets");
+  if (!cartCookie) {
+    window.location.href = "home_page.html";
+    return;
+  } else {
+    let cart;
+
+  try {
+    cart = JSON.parse(cartCookie);
+  } catch (error) {
+    console.error("Cart cookie JSON invalid:", error);
+    return;
+  }
+
+  // Sum all ticket quantities
+  let total = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+
+  
+    const confirmed = confirm(`Leaving this page will clear your cart. Are you sure?`);
+
+    if (!confirmed) {
+        return;
+    }
+    
     document.cookie = "tickets=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "shippingCost=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = "home_page.html";
+    return;
+
+    }
 });
 
 // Call on page load

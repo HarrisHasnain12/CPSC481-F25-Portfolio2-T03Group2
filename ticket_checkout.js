@@ -4,6 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 let shippingCost = 0;
+let ticketTot = 0;
 
 const Cart = {
     cookieName: "tickets",
@@ -136,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const requiredFields = document.querySelectorAll(".required-field");
-    const saveBtn = document.getElementById("finalCheckout");
+    const saveBtn = document.getElementById("checkout");
 
     function validateForm() {
         let allValid = true;
@@ -186,9 +187,6 @@ function renderCheckout() {
     return; // nothing more to render
   } else {
     emptyMessage.style.display = "none";
-    //checkoutContainer.style.display = "flex";
-    //checkoutContainer.style.flexDirection = "column";
-    //checkoutContainer.style.justifyContent = "center";
   }
 
   const template = document.getElementById("checkout-template");
@@ -199,7 +197,6 @@ function renderCheckout() {
 
     const root = clone.querySelector(".checkout-item");
     root.dataset.ticketId = ticket.id;
-
     clone.querySelector(".checkout-title").textContent = ticket.name;
     clone.querySelector(".ticket-number").textContent = `${ticket.quantity}`;
     clone.querySelector(".ticket-price").textContent = `$${ticket.price * ticket.quantity}`;
@@ -234,17 +231,19 @@ document.getElementById("checkout-container").addEventListener("click", (e) => {
   // Handle add button
   if (btn.classList.contains("add-btn")) {
     ticket.quantity++;
+    updateCartBadge();
   }
 
   // Handle subtract button
   else if (btn.classList.contains("sub-btn")) {
     if (ticket.quantity > 1) {
       ticket.quantity--;
+      updateCartBadge();
     }
   }
 
   // Handle remove button
-  else if (btn.classList.contains("trash-btn")) {
+  else if (btn.classList.contains("trash-chek")) {
     const confirmed = confirm(`Remove "${ticket.name}" from your cart?`);
 
     if (!confirmed) {
@@ -254,6 +253,7 @@ document.getElementById("checkout-container").addEventListener("click", (e) => {
     cart = cart.filter(t => t.id !== ticketId);
     Cart.save(cart);
     renderCheckout();
+    updateCartBadge();
     return;
   }
 
@@ -262,6 +262,7 @@ document.getElementById("checkout-container").addEventListener("click", (e) => {
 
   // Re-render UI
   renderCheckout();
+  updateCartBadge();
 });
 
 function setCookie(name, value, days = 7) {
@@ -280,3 +281,29 @@ function getCookie(name) {
     }
     return null;
 }
+
+function updateCartBadge() {
+  let cartCookie = getCookie("tickets");
+  if (!cartCookie) {
+    document.getElementById("cart-count").textContent = 0;
+    return;
+  }
+
+  let cart;
+
+  try {
+    cart = JSON.parse(cartCookie);
+  } catch (error) {
+    console.error("Cart cookie JSON invalid:", error);
+    document.getElementById("cart-count").textContent = 0;
+    return;
+  }
+
+  // Sum all ticket quantities
+  let total = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+
+  document.getElementById("cart-count").textContent = total;
+}
+
+// Call on page load
+updateCartBadge();

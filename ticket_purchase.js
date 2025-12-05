@@ -39,6 +39,8 @@ let count = 1;
 let price = 0;
 let selectedTicket = null;
 let cartArray = Cart.load();
+let cartCount = 0;
+let countTot = 0;
 
 //Script to show and hide dropdown
 btn.addEventListener('click', () => {
@@ -158,7 +160,7 @@ function addToCart() {
         alert("Please select a ticket first.");
         return;
     }
-
+    countTot += count;
     let cartArray = Cart.load();
     console.log("Adding ticket:", selectedTicket);
     Cart.addTicket({
@@ -166,11 +168,13 @@ function addToCart() {
         price: selectedTicket.price,
         descriptionId: selectedTicket.descriptionID,
         name: selectedTicket.name,
-        quantity: count
+        quantity: countTot
     });
     console.log(document.cookie);
     console.log("Ticket added!");
     console.log("Cart upadated:", Cart.load());
+    
+    updateCartBadge();
 };
 
 //Cookie to persist ticket data [I'm the problem now >:)]
@@ -190,3 +194,34 @@ function getCookie(name) {
     }
     return null;
 }
+
+function updateCartBadge() {
+  let cartCookie = getCookie("tickets");
+  if (!cartCookie) {
+    document.getElementById("cart-count").textContent = 0;
+    return;
+  }
+
+  let cart;
+
+  try {
+    cart = JSON.parse(cartCookie);
+  } catch (error) {
+    console.error("Cart cookie JSON invalid:", error);
+    document.getElementById("cart-count").textContent = 0;
+    return;
+  }
+
+  // Sum all ticket quantities
+  let total = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+
+  document.getElementById("cart-count").textContent = total;
+}
+
+document.getElementById("back-button").addEventListener("click", () => {
+    document.cookie = "tickets=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "shippingCost=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+});
+
+// Call on page load
+updateCartBadge();

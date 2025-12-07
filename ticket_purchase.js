@@ -160,8 +160,14 @@ function addToCart() {
         alert("Please select a ticket first.");
         return;
     }
-    countTot += count;
-    let cartArray = Cart.load();
+
+    const tickets = Cart.load();
+    countTot = count;
+    const existing = tickets.find(t=> t.id === selectedTicket.id);
+    if (existing) {
+        countTot += existing.quantity;
+    }
+    
     console.log("Adding ticket:", selectedTicket);
     Cart.addTicket({
         id: selectedTicket.id,

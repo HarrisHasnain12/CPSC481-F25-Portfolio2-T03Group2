@@ -168,7 +168,7 @@ body {
     .back-button {
       position: absolute;
       left: 16px;
-      top: 55%;
+      top: 50%;
       transform: translateY(-50%);
       background: #4fc3f7;
       border: 0.5px solid white;
